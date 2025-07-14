@@ -241,7 +241,6 @@ const BookingForm = () => {
                   )}
                 </Button>
               </div>
-            </div>
         </form>
       </CardContent>
     </Card>
