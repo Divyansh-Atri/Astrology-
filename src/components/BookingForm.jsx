@@ -213,7 +213,7 @@ const BookingForm = () => {
                     ${
                       formData.appointmentTime === time
                         ? 'bg-gradient-to-r from-fuchsia-500 via-purple-600 to-indigo-500 text-black shadow-xl ring-2 ring-fuchsia-300/70 scale-105 animate-pulse'
-                        : 'bg-white/10 text-black hover:bg-fuchsia-700/30 hover:text-black border border-purple-700/30 backdrop-blur-md'
+                        : 'bg-white/10 text-black hover:bg-fuchsia-700/30 hover:text-white border border-purple-700/30 backdrop-blur-md'
                     }
                   `}
                   style={{
