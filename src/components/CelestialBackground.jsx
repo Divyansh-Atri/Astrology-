@@ -4,10 +4,10 @@ const random = (min, max) => Math.random() * (max - min) + min;
 
 const CelestialBackground = () => {
   // Twinkling stars
-  const stars = Array.from({ length: 100 }).map((_, i) => {
+  const stars = Array.from({ length: 120 }).map((_, i) => {
     const size = random(1, 2.5);
     const opacity = random(0.4, 1);
-    const twinkle = random(1.2, 3.8);
+    const twinkle = random(0.3, 1.1); // faster twinkle
     return (
       <div
         key={`star-${i}`}
@@ -21,65 +21,68 @@ const CelestialBackground = () => {
           opacity,
           filter: 'blur(0.5px)',
           animation: `twinkle ${twinkle}s infinite alternate`,
-          animationDelay: `${random(0, 3)}s`
+          animationDelay: `${random(0, 0.000001)}s`
         }}
       />
     );
   });
 
   // More shooting stars, random intervals
-  const shootingStars = Array.from({ length: 8 }).map((_, i) => (
+  const shootingStars = Array.from({ length: 10 }).map((_, i) => (
     <div
       key={`shooting-star-${i}`}
       className="absolute h-0.5 bg-gradient-to-r from-white via-white/80 to-transparent rounded-full pointer-events-none"
       style={{
         left: `${random(5, 95)}%`,
         top: `${random(5, 90)}%`,
-        width: `${random(80, 180)}px`,
+        width: `${random(100, 220)}px`,
         opacity: 0.7,
-        animation: `shooting-star 2s linear ${random(0, 12)}s infinite`
+        animation: `shooting-star 2s linear ${random(0, 14)}s infinite`
       }}
     />
   ));
 
-  // Animated orbits with planets
-  const orbits = [
-    { size: 420, duration: 32, planetSize: 18, color: 'from-pink-400 to-pink-700', shadow: 'shadow-[0_0_16px_4px_rgba(255,100,180,0.3)]', offset: 0 },
-    { size: 320, duration: 22, planetSize: 12, color: 'from-blue-400 to-blue-700', shadow: 'shadow-[0_0_12px_3px_rgba(100,180,255,0.3)]', offset: 120 },
-    { size: 220, duration: 16, planetSize: 10, color: 'from-yellow-300 to-orange-500', shadow: 'shadow-[0_0_10px_2px_rgba(255,200,80,0.3)]', offset: 240 },
-  ];
-
-  const animatedPlanets = orbits.map((orbit, i) => (
-    <div
-      key={`orbit-${i}`}
-      className="absolute top-1/2 left-1/2 border border-white/10 rounded-full pointer-events-none"
-      style={{
-        width: orbit.size,
-        height: orbit.size,
-        marginLeft: -orbit.size / 2,
-        marginTop: -orbit.size / 2,
-        animation: `orbit-spin ${orbit.duration}s linear infinite`,
-        animationDelay: `-${orbit.offset}s`
-      }}
-    >
+  // Floating cosmic dust particles
+  const dustParticles = Array.from({ length: 30 }).map((_, i) => {
+    const size = random(2, 6);
+    const duration = random(8, 18);
+    const delay = random(0, 10);
+    return (
       <div
-        className="absolute"
+        key={`dust-${i}`}
+        className="absolute rounded-full pointer-events-none"
         style={{
-          left: '50%',
-          top: 0,
-          transform: `translateX(-50%)`,
+          left: `${random(0, 100)}%`,
+          top: `${random(0, 100)}%`,
+          width: `${size}px`,
+          height: `${size}px`,
+          background: 'rgba(255,255,255,0.08)',
+          filter: 'blur(2px)',
+          animation: `float ${duration}s ease-in-out ${delay}s infinite alternate`
         }}
-      >
-        <div
-          className={`w-[${orbit.planetSize}px] h-[${orbit.planetSize}px] bg-gradient-to-br ${orbit.color} rounded-full ${orbit.shadow} animate-planet-bounce`}
-          style={{
-            animationDuration: `${random(2, 4)}s`,
-            filter: 'blur(0.1px)'
-          }}
-        />
-      </div>
-    </div>
-  ));
+      />
+    );
+  });
+
+  // Floating planets (no orbits)
+  const planets = [
+    {
+      className: "w-12 h-12 bg-gradient-to-br from-pink-400 to-pink-700 rounded-full shadow-[0_0_32px_8px_rgba(255,100,180,0.3)] animate-float",
+      style: { top: "18%", left: "12%", animationDuration: "8s", filter: "blur(0.1px)" }
+    },
+    {
+      className: "w-8 h-8 bg-gradient-to-br from-blue-400 to-blue-700 rounded-full shadow-[0_0_24px_6px_rgba(100,180,255,0.3)] animate-float",
+      style: { top: "70%", left: "20%", animationDuration: "10s", filter: "blur(0.1px)" }
+    },
+    {
+      className: "w-10 h-10 bg-gradient-to-br from-yellow-300 to-orange-500 rounded-full shadow-[0_0_20px_4px_rgba(255,200,80,0.3)] animate-float",
+      style: { top: "60%", left: "80%", animationDuration: "12s", filter: "blur(0.1px)" }
+    },
+    {
+      className: "w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-700 rounded-full shadow-[0_0_40px_10px_rgba(180,100,255,0.3)] animate-float",
+      style: { top: "30%", left: "70%", animationDuration: "14s", filter: "blur(0.1px)" }
+    }
+  ];
 
   return (
     <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none select-none">
@@ -92,6 +95,9 @@ const CelestialBackground = () => {
       {/* Shooting Stars */}
       <div className="absolute inset-0">{shootingStars}</div>
 
+      {/* Cosmic Dust */}
+      <div className="absolute inset-0">{dustParticles}</div>
+
       {/* Sun with glow and slow movement */}
       <div className="absolute w-24 h-24 bg-gradient-to-br from-yellow-300 via-orange-400 to-orange-600 rounded-full top-16 right-16 shadow-[0_0_80px_20px_rgba(255,200,80,0.4)] animate-spin-slow"
         style={{ animationDuration: '24s', filter: 'blur(0.5px)' }}
@@ -102,19 +108,10 @@ const CelestialBackground = () => {
         style={{ animationDuration: '7s', filter: 'blur(0.2px)' }}
       />
 
-      {/* Planets with glow and pulse */}
-      <div className="absolute w-10 h-10 bg-gradient-to-br from-red-400 to-red-700 rounded-full top-2/3 right-40 shadow-[0_0_32px_8px_rgba(255,100,100,0.3)] animate-pulse"
-        style={{ animationDuration: '2.5s', filter: 'blur(0.2px)' }}
-      />
-      <div className="absolute w-8 h-8 bg-gradient-to-br from-blue-400 to-blue-700 rounded-full bottom-32 left-32 shadow-[0_0_24px_6px_rgba(100,180,255,0.3)] animate-bounce"
-        style={{ animationDuration: '3.5s', filter: 'blur(0.2px)' }}
-      />
-      <div className="absolute w-12 h-12 bg-gradient-to-br from-purple-400 to-purple-700 rounded-full bottom-20 right-60 shadow-[0_0_32px_8px_rgba(180,100,255,0.3)] animate-pulse"
-        style={{ animationDuration: '2.8s', filter: 'blur(0.2px)' }}
-      />
-
-      {/* Animated Orbits with Planets */}
-      {animatedPlanets}
+      {/* Floating Planets */}
+      {planets.map((planet, i) => (
+        <div key={i} className={`absolute ${planet.className}`} style={planet.style} />
+      ))}
 
       {/* Subtle aurora effect */}
       <div className="absolute left-1/4 top-1/3 w-1/2 h-1/4 bg-gradient-to-r from-purple-500/30 via-pink-400/20 to-blue-400/20 blur-3xl opacity-60 rounded-full animate-aurora" />
@@ -137,14 +134,6 @@ export default CelestialBackground;
 @keyframes spin-slow {
   0% { transform: rotate(0deg);}
   100% { transform: rotate(360deg);}
-}
-@keyframes orbit-spin {
-  0% { transform: rotate(0deg);}
-  100% { transform: rotate(360deg);}
-}
-@keyframes planet-bounce {
-  0%, 100% { transform: translateY(0);}
-  50% { transform: translateY(-8px);}
 }
 @keyframes float {
   0%, 100% { transform: translateY(0);}
