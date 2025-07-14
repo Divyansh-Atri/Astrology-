@@ -171,7 +171,7 @@ const BookingForm = () => {
                 type="tel"
                 value={formData.phone}
                 onChange={(e) => handleInputChange('phone', e.target.value)}
-                className="bg-black/30 border border-purple-700/40 text-white placeholder:text-purple-300 rounded-lg"
+                className="bg-black/30 border border-purple-700/40 text-black placeholder:text-purple-300 rounded-lg"
                 placeholder="1234567890"
                 maxLength={10}
               />
@@ -189,7 +189,7 @@ const BookingForm = () => {
                 type="date"
                 value={formData.appointmentDate}
                 onChange={(e) => handleInputChange('appointmentDate', e.target.value)}
-                className="bg-black/30 border border-purple-700/40 text-white placeholder:text-purple-300 rounded-lg"
+                className="bg-black/30 border border-purple-700/40 text-black placeholder:text-purple-300 rounded-lg"
               />
               {errors.appointmentDate && <p className="text-red-400 text-xs">{errors.appointmentDate}</p>}
             </div>
@@ -212,8 +212,8 @@ const BookingForm = () => {
                     rounded-xl font-semibold transition-all duration-200 border-0
                     ${
                       formData.appointmentTime === time
-                        ? 'bg-gradient-to-r from-fuchsia-500 via-purple-600 to-indigo-500 text-white shadow-xl ring-2 ring-fuchsia-300/70 scale-105 animate-pulse'
-                        : 'bg-white/10 text-white hover:bg-fuchsia-700/30 hover:text-white border border-purple-700/30 backdrop-blur-md'
+                        ? 'bg-gradient-to-r from-fuchsia-500 via-purple-600 to-indigo-500 text-black shadow-xl ring-2 ring-fuchsia-300/70 scale-105 animate-pulse'
+                        : 'bg-white/10 text-black hover:bg-fuchsia-700/30 hover:text-black border border-purple-700/30 backdrop-blur-md'
                     }
                   `}
                   style={{
