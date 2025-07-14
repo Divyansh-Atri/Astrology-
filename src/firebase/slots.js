@@ -10,29 +10,17 @@ import {
   setDoc,
   getDoc,
 } from "firebase/firestore";
-
-/**
- * Format time like "10:30 AM" → "10-30AM"
- */
+import { sendEmailConfirmation } from "./sendEmail";
 const formatTimeForId = (time) => time.replace(/\s+/g, '').replace(':', '-');
 
-/**
- * Format date like "2025-07-14" → "14_07_2025"
- */
 const formatDateForId = (dateStr) => {
   const [yyyy, mm, dd] = dateStr.split("-");
   return `${dd}_${mm}_${yyyy}`;
 };
 
-/**
- * Generate ID in format: DD_MM_YYYY-TIME
- */
 const generateAppointmentId = (date, time) =>
   `${formatDateForId(date)}-${formatTimeForId(time)}`;
 
-/**
- * Create a new appointment and book a slot
- */
 export const createAppointment = async (formData) => {
   const {
     patientName,
@@ -106,6 +94,12 @@ export const createAppointment = async (formData) => {
   };
 
   await setDoc(doc(db, "appointments", appointmentId), appointmentData);
+  await sendEmailConfirmation({
+        email,
+        patientName,
+        appointmentDate,
+        appointmentTime
+    });
 
   return { id: appointmentId, ...appointmentData };
 };
