@@ -154,7 +154,7 @@ const BookingForm = () => {
                 type="email"
                 value={formData.email}
                 onChange={(e) => handleInputChange('email', e.target.value)}
-                className="bg-black/30 border border-purple-700/40 text-white placeholder:text-purple-300 rounded-lg"
+                className="bg-black/30 border border-purple-700/40 text-black placeholder:text-purple-300 rounded-lg"
                 placeholder="your.email@example.com"
               />
               {errors.email && <p className="text-red-400 text-xs">{errors.email}</p>}
