@@ -9,13 +9,13 @@ import { Resend } from "resend"
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "",
-  authDomain: "",
-  projectId: "",
-  storageBucket: "",
-  messagingSenderId: "",
-  appId: "",
-  measurementId: ""
+  apiKey: "AIzaSyAeshDVzzjC7tvMqSi5TpOfx8AKHyetL3Y",
+  authDomain: "celestial-portal.firebaseapp.com",
+  projectId: "celestial-portal",
+  storageBucket: "celestial-portal.firebasestorage.app",
+  messagingSenderId: "654699349205",
+  appId: "1:654699349205:web:f7bb2a99123cfd5a628e5c",
+  measurementId: "G-PLG7Z1EG6M"
 };
 
 // Initialize Firebase

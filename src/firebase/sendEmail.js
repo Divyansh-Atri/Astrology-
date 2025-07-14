@@ -1,8 +1,9 @@
 import emailjs from "emailjs-com";
 
-const SERVICE_ID = "";
-const TEMPLATE_ID = "";
-const USER_ID = ""; // (a.k.a. public key)
+const SERVICE_ID = "service_w8g2rz8";
+const TEMPLATE_ID = "template_b0y73co";
+const USER_ID = "Wx4WR-5YSya-lJJsk";
+
 
 export const sendEmailConfirmation = async ({ email, patientName, appointmentDate, appointmentTime }) => {
   const templateParams = {
