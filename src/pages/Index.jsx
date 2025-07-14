@@ -31,19 +31,43 @@ const Index = () => {
       <div className="relative z-10 min-h-screen">
         {/* Hero Section */}
         <section className="container mx-auto px-4 py-20">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-purple-400 via-pink-400 to-yellow-400 bg-clip-text text-transparent animate-fade-in">
-              Celestial Wisdom
+              Shambhav Jyotish
             </h1>
             <p className="text-xl md:text-2xl text-purple-200 mb-8 max-w-3xl mx-auto animate-fade-in">
               Unlock the mysteries of the universe and discover your cosmic destiny through ancient astrological wisdom
             </p>
-            <div className="flex items-center justify-center gap-2 text-yellow-300 animate-pulse">
+            <div className="flex items-center justify-center gap-2 text-yellow-300 animate-pulse mb-8">
               <Sparkles size={24} />
               <span className="text-lg font-semibold">Connect with the cosmos today</span>
               <Sparkles size={24} />
             </div>
           </div>
+
+          {/* Astrologer Banner */}
+          <Card className="bg-gradient-to-r from-purple-900/90 via-black/80 to-indigo-900/90 shadow-2xl rounded-3xl mb-16 max-w-4xl mx-auto overflow-hidden border border-purple-700/30">
+            <div className="flex flex-col md:flex-row">
+              {/* Astrologer Photo */}
+              <div className="md:w-1/3 w-full flex-shrink-0 flex items-center justify-center bg-black/20 p-0 md:p-0">
+                <div className="w-full md:w-[220px] aspect-[3/4] overflow-hidden flex items-center justify-center">
+                  <img
+                    src="/bhushan.jpg" // <-- Replace with your image path
+                    alt="Astrologer"
+                    className="object-cover w-full h-full rounded-none md:rounded-l-3xl shadow-lg"
+                  />
+                </div>
+              </div>
+              {/* Name & Description */}
+              <div className="md:w-2/3 w-full p-6 md:p-10 flex flex-col justify-center text-left bg-transparent">
+                <h3 className="text-3xl md:text-4xl font-extrabold text-white mb-2 tracking-wide">Pandit Bhushan Ji</h3>
+                <p className="text-purple-200 text-lg mb-3 italic">Astrologer | Tarot Reader | Numerologist</p>
+                <p className="text-purple-100 text-base md:text-lg leading-relaxed">
+                  With a deep connection to the cosmos and over 15 years of experience, Pandit Bhushan Ji blends ancient Vedic wisdom with modern insight to illuminate your life’s journey. His compassionate guidance and intuitive readings have empowered hundreds to find clarity, purpose, and peace.
+                </p>
+              </div>
+            </div>
+          </Card>
 
           {/* Services Grid */}
           <div className="grid md:grid-cols-3 gap-8 mb-20">
