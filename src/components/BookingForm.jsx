@@ -137,7 +137,7 @@ const BookingForm = () => {
                 id="patientName"
                 value={formData.patientName}
                 onChange={(e) => handleInputChange('patientName', e.target.value)}
-                className="bg-black/30 border border-purple-700/40 text-white placeholder:text-purple-300 rounded-lg"
+                className="bg-black/30 border border-purple-700/40 text-black placeholder:text-purple-300 rounded-lg"
                 placeholder="Enter your full name"
               />
               {errors.patientName && <p className="text-red-400 text-xs">{errors.patientName}</p>}
