@@ -221,26 +221,14 @@ const BookingForm = () => {
             </div>
           </div>
 
-          <div className="flex justify-center pt-6">
-                <Button
-                  onClick={handleSubmit}
-                  disabled={isSubmitting}
-                  className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-12 py-4 rounded-lg text-lg font-semibold shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                      Booking...
-                    </>
-                  ) : (
-                    <>
-                      <Sparkles className="w-5 h-5" />
-                      Book Your Reading
-                      <Sparkles className="w-5 h-5" />
-                    </>
-                  )}
-                </Button>
-              </div>
+          <div className="flex justify-center">
+            <Button
+              type="submit"
+              className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-2 rounded-lg"
+            >
+              Book Your Reading
+            </Button>
+          </div>
         </form>
       </CardContent>
     </Card>
