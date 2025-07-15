@@ -18,6 +18,7 @@ const BookingForm = () => {
     status: 'upcoming'
   });
   const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
   const timeSlots = [
@@ -64,8 +65,9 @@ const BookingForm = () => {
       return;
     }
 
+    setIsSubmitting(true); // Start loading
+
     try {
-      // Create appointment directly without authentication
       const response = await createAppointment(formData);
       
       toast({
@@ -93,10 +95,11 @@ const BookingForm = () => {
         variant: "destructive",
       });
 
-      // If the error is about an already booked slot, clear the time selection
       if (errorMessage.includes("already booked")) {
         setFormData(prev => ({ ...prev, appointmentTime: '' }));
       }
+    } finally {
+      setIsSubmitting(false); // End loading
     }
   };
 
@@ -233,6 +236,7 @@ const BookingForm = () => {
           <div className="mt-4 mb-2">
             <Button
               type="submit"
+              disabled={isSubmitting}
               className={`
                 w-full
                 bg-gradient-to-r from-[#a78bfa] via-[#f472b6] to-[#818cf8]
@@ -247,20 +251,38 @@ const BookingForm = () => {
                 before:blur-lg before:opacity-60 before:transition-all before:duration-300
                 hover:before:opacity-90
                 focus:ring-4 focus:ring-pink-400/40
+                disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100
               `}
               style={{
                 zIndex: 1
               }}
             >
               <span className="relative flex items-center justify-center gap-4 z-10">
-                <Star className="w-6 h-6 text-yellow-300 animate-pulse" />
-                Book Your Reading
-                <Star className="w-6 h-6 text-yellow-300 animate-pulse" />
+                {isSubmitting ? (
+                  <>
+                    <div className="w-6 h-6 border-4 border-white border-t-transparent rounded-full animate-spin" />
+                    Booking...
+                  </>
+                ) : (
+                  <>
+                    <Star className="w-6 h-6 text-yellow-300 animate-pulse" />
+                    Book Your Reading
+                    <Star className="w-6 h-6 text-yellow-300 animate-pulse" />
+                  </>
+                )}
               </span>
             </Button>
           </div>
         </form>
       </CardContent>
+      {isSubmitting && (
+  <div className="absolute inset-0 bg-black/50 backdrop-blur-sm rounded-[2.5rem] flex items-center justify-center z-50">
+    <div className="text-center">
+      <div className="w-16 h-16 border-4 border-purple-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+      <p className="text-white text-lg font-semibold">Scheduling Your Cosmic Journey...</p>
+    </div>
+  </div>
+)}
     </Card>
   );
 };
