@@ -86,17 +86,17 @@ const Index = () => {
               <CardContent className="p-8">
                 <h2 className="text-3xl font-bold text-white mb-6">Meet Your Cosmic Guide</h2>
                 <p className="text-purple-200 text-lg leading-relaxed mb-6">
-                  With over 15 years of experience in astrological practice, I combine ancient wisdom with modern insights 
+                  With over 40 years of experience in astrological practice, I combine ancient wisdom with modern insights 
                   to help you navigate life's challenges and opportunities. My readings blend traditional techniques with 
                   intuitive guidance to provide you with the clarity and direction you seek.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
                   <div>
-                    <div className="text-3xl font-bold text-yellow-400 mb-2">500+</div>
+                    <div className="text-3xl font-bold text-yellow-400 mb-2">5000+</div>
                     <div className="text-purple-200">Happy Clients</div>
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-yellow-400 mb-2">15+</div>
+                    <div className="text-3xl font-bold text-yellow-400 mb-2">40+</div>
                     <div className="text-purple-200">Years Experience</div>
                   </div>
                   <div>
