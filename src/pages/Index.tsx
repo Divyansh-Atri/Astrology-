@@ -5,6 +5,7 @@ import BookingForm from '@/components/BookingForm';
 import { Card, CardContent } from '@/components/ui/card';
 import { createDefaultSlots } from "@/firebase/slots"
 import { Star, Moon, Sun, Sparkles } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Index = () => {
   const services = [
@@ -28,7 +29,11 @@ const Index = () => {
   return (
     <div className="min-h-screen relative bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
       <CelestialBackground />
-      
+      {/* Navigation Buttons */}
+      <div className="relative z-10 flex justify-center gap-6 mt-12 mb-4">
+        <Link to="/gallery" className="px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full font-bold shadow-lg hover:scale-105 transition-transform text-lg">Go to Gallery</Link>
+        <Link to="/gallery/stone" className="px-6 py-3 bg-gradient-to-r from-yellow-400 to-pink-400 text-white rounded-full font-bold shadow-lg hover:scale-105 transition-transform text-lg">Go to Stones</Link>
+      </div>
       {/* Main Content */}
       <div className="relative z-10 min-h-screen">
         {/* Hero Section */}
@@ -67,16 +72,42 @@ const Index = () => {
             })}
           </div>
 
+          {/* Pandit Bhushan Ji Banner - Modern, Elegant, Centered */}
+          <div className="flex justify-center items-center mb-20">
+            <div className="w-full max-w-lg flex flex-col items-center bg-white/10 backdrop-blur-lg rounded-3xl shadow-2xl border border-emerald-600/30 p-8 md:p-12 gap-4">
+              {/* Photo on Top */}
+              <div className="flex items-center justify-center mb-4">
+                <div className="w-40 h-28 md:w-56 md:h-40 rounded-xl overflow-hidden border-4 border-emerald-400 shadow-lg bg-black/30 flex items-center justify-center">
+                  <img
+                    src="/bhushan.jpg"
+                    alt="Pandit Bhushan Ji"
+                    className="object-cover w-full h-full rounded-xl"
+                  />
+                </div>
+              </div>
+              {/* Name */}
+              <h2 className="text-4xl md:text-5xl font-bold mb-1 tracking-tight text-center" style={{fontFamily: 'Playfair Display, Georgia, serif', color: '#10b981', letterSpacing: '0.01em', textShadow: '0 2px 8px #0f5132cc'}}>Pandit Bhushan Ji</h2>
+              {/* Subtitle */}
+              <div className="uppercase tracking-widest text-xs md:text-sm text-gray-300 mb-1 font-semibold text-center" style={{letterSpacing: '0.18em'}}>Astrologer · Tarot Reader · Numerologist</div>
+              {/* Quote */}
+              <blockquote className="text-base md:text-lg italic text-emerald-200 font-light mb-2 md:mb-4 w-full text-center" style={{fontFamily: 'Georgia, serif'}}>
+                “Guiding you to cosmic clarity, one star at a time.”
+              </blockquote>
+              {/* Description */}
+              <p className="text-white text-base md:text-lg leading-relaxed mb-2 md:mb-4 max-w-xl text-center" style={{lineHeight: '1.7'}}>
+                With <span className="text-emerald-300 font-bold">15+ years</span> of experience, Pandit Bhushan Ji blends ancient Vedic wisdom with modern insight to illuminate your life’s journey. His compassionate guidance and intuitive readings have empowered hundreds to find clarity, purpose, and peace.
+              </p>
+              {/* Highlights */}
+              <div className="flex gap-2 mt-1 flex-wrap justify-center">
+                <span className="px-3 py-1 bg-emerald-600/80 text-white font-semibold rounded-full text-xs md:text-sm border border-emerald-400/60">15+ Years</span>
+                <span className="px-3 py-1 bg-emerald-600/80 text-white font-semibold rounded-full text-xs md:text-sm border border-emerald-400/60">500+ Clients</span>
+                <span className="px-3 py-1 bg-emerald-600/80 text-white font-semibold rounded-full text-xs md:text-sm border border-emerald-400/60">98% Satisfaction</span>
+              </div>
+            </div>
+          </div>
+
           {/* Booking Section */}
           <section className="mb-20">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                Begin Your Cosmic Journey
-              </h2>
-              <p className="text-lg text-purple-200 max-w-2xl mx-auto">
-                Schedule a personalized consultation with our expert astrologer and let the stars illuminate your path forward
-              </p>
-            </div>
             <BookingForm />
           </section>
 

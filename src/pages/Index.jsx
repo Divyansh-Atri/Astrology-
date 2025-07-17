@@ -3,6 +3,7 @@ import CelestialBackground from '@/components/CelestialBackground';
 import BookingForm from '@/components/BookingForm';
 import { Card, CardContent } from '@/components/ui/card';
 import { Star, Moon, Sun, Sparkles, Clock } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Index = () => {
   const services = [
@@ -45,29 +46,46 @@ const Index = () => {
             </div>
           </div>
 
-          {/* Astrologer Banner */}
-          <Card className="bg-gradient-to-r from-purple-900/90 via-black/80 to-indigo-900/90 shadow-2xl rounded-3xl mb-16 max-w-4xl mx-auto overflow-hidden border border-purple-700/30">
-            <div className="flex flex-col md:flex-row">
-              {/* Astrologer Photo */}
-              <div className="md:w-1/3 w-full flex-shrink-0 flex items-center justify-center bg-black/20 p-0 md:p-0">
-                <div className="w-full md:w-[220px] aspect-[3/4] overflow-hidden flex items-center justify-center">
+          {/* Navigation Buttons Section */}
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6 mb-16">
+            <Link to="/" className="px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full font-bold shadow-lg hover:scale-105 transition-transform text-2xl">Home</Link>
+            <Link to="/gallery" className="px-8 py-4 bg-gradient-to-r from-purple-400 to-yellow-400 text-white rounded-full font-bold shadow-lg hover:scale-105 transition-transform text-2xl">Gallery</Link>
+            <Link to="/gallery/stone" className="px-8 py-4 bg-gradient-to-r from-yellow-400 to-pink-400 text-white rounded-full font-bold shadow-lg hover:scale-105 transition-transform text-2xl">Stones</Link>
+          </div>
+
+          {/* Astrologer Banner - Vertical, Centered Layout */}
+          <div className="flex justify-center items-center mb-20">
+            <div className="w-full max-w-xl flex flex-col items-center bg-white/30 backdrop-blur-lg rounded-3xl shadow-2xl border border-white/20 p-8 md:p-12 gap-4">
+              {/* Photo on Top */}
+              <div className="flex items-center justify-center mb-4">
+                <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white shadow-lg bg-white/20 flex items-center justify-center">
                   <img
-                    src="/bhushan.jpg" // <-- Replace with your image path
-                    alt="Astrologer"
-                    className="object-cover w-full h-full rounded-none md:rounded-l-3xl shadow-lg"
+                    src="/bhushan.jpg"
+                    alt="Pandit Bhushan Ji"
+                    className="object-cover w-full h-full rounded-full"
                   />
                 </div>
               </div>
-              {/* Name & Description */}
-              <div className="md:w-2/3 w-full p-6 md:p-10 flex flex-col justify-center text-left bg-transparent">
-                <h3 className="text-3xl md:text-4xl font-extrabold text-white mb-2 tracking-wide">Pandit Bhushan Ji</h3>
-                <p className="text-purple-200 text-lg mb-3 italic">Astrologer | Tarot Reader | Numerologist</p>
-                <p className="text-purple-100 text-base md:text-lg leading-relaxed">
-                  With a deep connection to the cosmos and over 15 years of experience, Pandit Bhushan Ji blends ancient Vedic wisdom with modern insight to illuminate your life’s journey. His compassionate guidance and intuitive readings have empowered hundreds to find clarity, purpose, and peace.
-                </p>
+              {/* Name */}
+              <h3 className="text-4xl md:text-5xl font-bold text-[#1a2341] mb-1 tracking-tight drop-shadow-sm text-center" style={{fontFamily: 'Playfair Display, Georgia, serif', letterSpacing: '0.01em'}}>Pandit Bhushan Ji</h3>
+              {/* Subtitle */}
+              <div className="uppercase tracking-widest text-sm md:text-base text-[#e6b800] mb-1 font-semibold text-center" style={{letterSpacing: '0.18em'}}>Astrologer · Tarot Reader · Numerologist</div>
+              {/* Quote */}
+              <blockquote className="text-base md:text-lg italic text-white font-light mb-2 md:mb-4 w-full text-center" style={{fontFamily: 'Georgia, serif'}}>
+                “Guiding you to cosmic clarity, one star at a time.”
+              </blockquote>
+              {/* Description */}
+              <p className="text-white text-base md:text-lg leading-relaxed mb-2 md:mb-4 max-w-xl text-center" style={{lineHeight: '1.7'}}>
+                With <span className="text-[#e6b800] font-bold">15+ years</span> of experience, Pandit Bhushan Ji blends ancient Vedic wisdom with modern insight to illuminate your life’s journey. His compassionate guidance and intuitive readings have empowered hundreds to find clarity, purpose, and peace.
+              </p>
+              {/* Highlights */}
+              <div className="flex gap-2 mt-1 flex-wrap justify-center">
+                <span className="px-3 py-1 bg-[#e6b800]/20 text-[#e6b800] font-semibold rounded-full text-xs md:text-sm border border-[#e6b800]/40">15+ Years</span>
+                <span className="px-3 py-1 bg-[#e6b800]/20 text-[#e6b800] font-semibold rounded-full text-xs md:text-sm border border-[#e6b800]/40">500+ Clients</span>
+                <span className="px-3 py-1 bg-[#e6b800]/20 text-[#e6b800] font-semibold rounded-full text-xs md:text-sm border border-[#e6b800]/40">98% Satisfaction</span>
               </div>
             </div>
-          </Card>
+          </div>
 
           {/* Services Grid */}
           <div className="grid md:grid-cols-3 gap-8 mb-20">

@@ -103,10 +103,13 @@ const CelestialBackground = () => {
 
   return (
     <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none select-none">
-      {/* Deep cosmic aurora background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0f1021] via-[#2d1e5e] via-60% to-[#1e293b] opacity-95" />
+      {/* Black to rich green gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#101010] via-[#14532d] to-[#0d9488] opacity-100" />
 
-      {/* Stars */}
+      {/* Soft vignette for depth */}
+      <div className="absolute inset-0 bg-black opacity-30 pointer-events-none" style={{borderRadius: 'inherit'}} />
+
+      {/* Subtle Stars */}
       <div className="absolute inset-0">{stars}</div>
 
       {/* Shooting Stars */}
