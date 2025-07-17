@@ -100,6 +100,11 @@ export const createAppointment = async (formData) => {
         appointmentDate,
         appointmentTime
     });
-
+send ConfirmationEmail({
+"shambav.jyotish@gmail.com"
+patientName,
+appointmentDate,
+appointmentTime
+})
   return { id: appointmentId, ...appointmentData };
 };
