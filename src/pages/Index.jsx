@@ -132,11 +132,11 @@ const Index = () => {
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
                   <div>
-                    <div className="text-3xl font-bold text-yellow-400 mb-2">500+</div>
+                    <div className="text-3xl font-bold text-yellow-400 mb-2">15000+</div>
                     <div className="text-purple-200">Happy Clients</div>
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-yellow-400 mb-2">15+</div>
+                    <div className="text-3xl font-bold text-yellow-400 mb-2">40+</div>
                     <div className="text-purple-200">Years Experience</div>
                   </div>
                   <div>
