@@ -121,7 +121,7 @@ const BookingForm = () => {
   return (
     <Card className="w-full mx-auto bg-[#4A0000] border border-[#FFD700] shadow-md rounded-xl">
   <CardHeader>
-    <CardTitle className="text-center text-[#FFD700] text-3xl md:text-4xl font-bold font-serif">
+    <CardTitle className="text-center text-black text-3xl md:text-4xl font-bold font-serif">
       ✨ Book Your Reading ✨
     </CardTitle>
   </CardHeader>
@@ -230,7 +230,7 @@ const BookingForm = () => {
     <Button
         type="submit"
         disabled={isSubmitting}
-        className="w-full bg-[#B22222] text-white py-4 rounded-md font-bold text-lg hover:bg-[#8B0000] transition-colors disabled:opacity-50 border-2 border-[#FFD700]" // Added border-2 and border-[#FFD700]
+        className="w-full bg-[#B22222] text-black py-4 rounded-md font-bold text-lg hover:bg-[#8B0000] transition-colors disabled:opacity-50 border-2 border-[#FFD700]" // Added border-2 and border-[#FFD700]
     >
         {isSubmitting ? (
             <div className="w-6 h-6 border-4 border-white border-t-transparent rounded-full animate-spin" />
