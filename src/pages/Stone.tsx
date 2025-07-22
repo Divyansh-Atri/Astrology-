@@ -103,9 +103,7 @@ const Stone = () => {
               <Link to="/" className="hover:text-yellow-200 transition-colors">Home</Link>
               <Link to="/gallery" className="hover:text-yellow-200 transition-colors">Gallery</Link>
               <Link to="/gallery/stone" className="hover:text-yellow-200 transition-colors">Stones</Link>
-              <a href="/#booking" className="bg-white text-[#B91C1C] px-4 py-2 rounded-md font-semibold hover:bg-yellow-50 transition-colors">
-                Book Now
-              </a>
+            
             </div>
           </div>
         </div>
