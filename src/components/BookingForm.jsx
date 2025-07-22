@@ -138,7 +138,7 @@ const BookingForm = () => {
                 id="patientName"
                 value={formData.patientName}
                 onChange={(e) => handleInputChange('patientName', e.target.value)}
-                className="bg-gray-50 border-gray-300 text-black placeholder:text-gray-400 rounded-md"
+                className="bg-black-50 border-black-300 text-black placeholder:text-black-400 rounded-md"
                 placeholder="Enter your full name"
               />
               {errors.patientName && <p className="text-red-500 text-xs">{errors.patientName}</p>}
@@ -190,7 +190,7 @@ const BookingForm = () => {
                 type="date"
                 value={formData.appointmentDate}
                 onChange={(e) => handleInputChange('appointmentDate', e.target.value)}
-                className="bg-gray-50 border-gray-300 text-black placeholder:text-gray-400 rounded-md"
+                className="bg-black-50 border-black-300 text-black placeholder:text-black-400 rounded-md"
               />
               {errors.appointmentDate && <p className="text-red-500 text-xs">{errors.appointmentDate}</p>}
             </div>
@@ -214,7 +214,7 @@ const BookingForm = () => {
                     ${
                       formData.appointmentTime === time
                         ? 'bg-black text-white border-black'
-                        : 'bg-white text-black border-gray-300 hover:bg-gray-100'
+                        : 'bg-white text-black border-black-300 hover:bg-black-100'
                     }
                   `}
                 >

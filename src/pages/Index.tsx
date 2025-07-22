@@ -1,5 +1,4 @@
 import React from 'react';
-import AstrologerCosmicBackground from '@/components/CelestialBackground';
 import BookingForm from '@/components/BookingForm';
 import { Card, CardContent } from '@/components/ui/card';
 import { Star, Moon, Sun, Sparkles } from 'lucide-react';
@@ -18,7 +17,6 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-zinc-900">
-      <AstrologerCosmicBackground />
       <Sidebar />
 
       <main className="relative z-10 ml-64">

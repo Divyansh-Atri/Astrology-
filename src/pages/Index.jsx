@@ -3,21 +3,21 @@ import BookingForm from '@/components/BookingForm';
 import { Sun, Moon, Star, Phone, Mail, MapPin } from 'lucide-react';
 
 const Index = () => {
-  const services = [
-    {
+    const services = [
+        {
             title: 'Birth Chart Reading',
             description: 'A detailed analysis of your birth chart to reveal your life\'s purpose, strengths, and challenges.',
-      icon: Star,
-    },
-    {
+            icon: Star,
+        },
+        {
             title: 'Relationship Compatibility',
             description: 'Understand the dynamics of your relationships through a synastry chart analysis.',
-      icon: Moon,
-    },
-    {
+            icon: Moon,
+        },
+        {
             title: 'Career & Finance Forecast',
             description: 'Gain insights into your professional path and financial prospects with a targeted reading.',
-      icon: Sun,
+            icon: Sun,
         },
     ];
 
@@ -28,7 +28,7 @@ const Index = () => {
         bookingSection.scrollIntoView({ behavior: 'smooth' });
     };
 
-  return (
+    return (
         <div className="min-h-screen bg-white">
             {/* Add custom styles for the gradient text */}
             <style>
@@ -310,7 +310,7 @@ const Index = () => {
                 <div className="container mx-auto px-6 flex flex-wrap justify-end gap-6 text-sm">
                     <a href="tel:+919418108727" className="flex items-center gap-2 hover:text-[#B91C1C] transition-colors">
                         <Phone size={14} />
-                        <span>Call Us: +91 94181 08727</span>
+                        <span>Call Us: +91 7591070027</span>
                     </a>
                     <a href="mailto:shambhav.jyotish@gmail.com" className="flex items-center gap-2 hover:text-[#B91C1C] transition-colors">
                         <Mail size={14} />
@@ -334,7 +334,7 @@ const Index = () => {
                             <Link to="/" className="hover:text-yellow-200 transition-colors">Home</Link>
                             <Link to="/gallery" className="hover:text-yellow-200 transition-colors">Gallery</Link>
                             <Link to="/gallery/stone" className="hover:text-yellow-200 transition-colors">Stones</Link>
-                            <button 
+                            <button
                                 onClick={scrollToBooking}
                                 className="book-now-btn bg-gradient-to-r from-yellow-500 to-yellow-600 text-black px-4 py-2 rounded-md font-semibold hover:shadow-lg hover:from-yellow-400 hover:to-yellow-500 transition-all duration-300"
                             >
@@ -346,7 +346,7 @@ const Index = () => {
             </nav>
 
             {/* Banner Section */}
-            <div className="relative banner-gradient min-h-[600px] overflow-hidden">
+            <div className="relative banner-gradient min-h-[600px] overflow-hidden flex flex-col justify-between">
                 {/* Particles */}
                 {[...Array(15)].map((_, i) => (
                     <div
@@ -355,58 +355,59 @@ const Index = () => {
                         style={{
                             left: `${Math.random() * 100}%`,
                             top: `${Math.random() * 100}%`,
-                            animationDelay: `${Math.random() * 2}s`
+                            animationDelay: `${Math.random() * 1.5}s`
                         }}
                     />
                 ))}
 
                 {/* Background Om Symbol */}
-                <div className="om-symbol absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                <div className="om-symbol absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0">
                     ॐ
-          </div>
+                </div>
 
                 {/* Decorative Top Border */}
-                <div className="absolute top-0 left-0 right-0">
+                <div className="absolute top-0 left-0 right-0 z-10">
                     <div className="decorative-line"></div>
-          </div>
+                </div>
 
-                <div className="container mx-auto px-6 h-full py-20">
-                    <div className="flex items-center justify-between h-full gap-8">
+                {/* Main Content Container */}
+                <div className="container mx-auto px-6 h-full py-10 sm:py-20 relative z-10 flex-grow">
+                    <div className="flex flex-col lg:flex-row items-center justify-between h-full gap-8">
                         {/* Left Side - Ganesh Ji */}
-                        <div className="w-1/4 flex justify-center deity-container">
-                            <div className="relative w-64 h-64">
+                        <div className="w-full lg:w-1/4 flex justify-center deity-container order-2 lg:order-1 mt-8 lg:mt-0">
+                            <div className="relative w-48 h-48 sm:w-64 sm:h-64">
                                 <div className="absolute inset-0 rounded-full bg-gradient-to-br from-yellow-400/20 to-yellow-600/20 backdrop-blur-sm"></div>
                                 <img
                                     src="/deities/ganesh.png"
                                     alt="Lord Ganesh"
                                     className="absolute inset-0 w-full h-full object-contain p-4"
-                  />
-                </div>
-              </div>
+                                />
+                            </div>
+                        </div>
 
                         {/* Center Content */}
-                        <div className="w-1/2 text-center relative z-10">
+                        <div className="w-full lg:w-1/2 text-center relative z-10 order-1 lg:order-2">
                             <div className="title-container">
-                                <h1 className="main-title" style={{ fontFamily: 'Cinzel Decorative, serif' }}>
+                                <h1 className="main-title text-4xl sm:text-5xl lg:text-6xl" style={{ fontFamily: 'Cinzel Decorative, serif' }}>
                                     Shambhav Jyotish
                                 </h1>
-                                <p className="subtitle" style={{ fontFamily: 'Cormorant Garamond, serif' }}>
+                                <p className="subtitle text-lg sm:text-xl lg:text-2xl mt-2" style={{ fontFamily: 'Cormorant Garamond, serif' }}>
                                     Find & Book Trusted Pandit Ji Online
                                 </p>
-                                <div className="flex justify-center gap-6 mt-8">
-                                    <button 
+                                <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 mt-8">
+                                    <button
                                         onClick={scrollToBooking}
-                                        className="book-now-btn px-8 py-4 rounded-lg font-bold text-lg flex items-center gap-2 shadow-lg"
+                                        className="book-now-btn px-6 py-3 sm:px-8 sm:py-4 rounded-lg font-bold text-base sm:text-lg flex items-center justify-center gap-2 shadow-lg"
                                         style={{ fontFamily: 'Poppins, sans-serif' }}
                                     >
-                                        Book Pandit G Now
+                                        Book Pandit Ji Now
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                             <path fillRule="evenodd" d="M16.707 10.293a1 1 0 010 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l4.293-4.293a1 1 0 011.414 0z" clipRule="evenodd" />
                                         </svg>
                                     </button>
-                                    <a 
-                                        href="#services" 
-                                        className="px-8 py-4 rounded-lg font-bold text-lg border-2 border-[#8B0000] text-[#8B0000] hover:bg-[#8B0000] hover:text-[#FFD700] transition-colors"
+                                    <a
+                                        href="#services"
+                                        className="px-6 py-3 sm:px-8 sm:py-4 rounded-lg font-bold text-base sm:text-lg border-2 border-[#8B0000] text-[#8B0000] hover:bg-[#8B0000] hover:text-[#FFD700] transition-colors flex items-center justify-center"
                                         style={{ fontFamily: 'Poppins, sans-serif' }}
                                     >
                                         Our Services
@@ -416,8 +417,8 @@ const Index = () => {
                         </div>
 
                         {/* Right Side - Maa Durga */}
-                        <div className="w-1/4 flex justify-center deity-container">
-                            <div className="relative w-64 h-64">
+                        <div className="w-full lg:w-1/4 flex justify-center deity-container order-3 mt-8 lg:mt-0">
+                            <div className="relative w-48 h-48 sm:w-64 sm:h-64">
                                 <div className="absolute inset-0 rounded-full bg-gradient-to-br from-yellow-400/20 to-yellow-600/20 backdrop-blur-sm"></div>
                                 <img
                                     src="/deities/durga.png"
@@ -425,18 +426,83 @@ const Index = () => {
                                     className="absolute inset-0 w-full h-full object-contain p-4"
                                 />
                             </div>
-              </div>
-            </div>
-          </div>
+                        </div>
+                    </div>
+                </div>
 
                 {/* Decorative Bottom Border */}
-                <div className="absolute bottom-0 left-0 right-0">
+                <div className="absolute bottom-0 left-0 right-0 z-10">
                     <div className="decorative-line"></div>
                     <svg viewBox="0 0 1440 60" className="text-white fill-current">
                         <path d="M0,0 C480,60 960,60 1440,0 L1440,60 L0,60 Z"></path>
                     </svg>
                 </div>
             </div>
+                
+
+               <section className="py-16 md:py-24 bg-gradient-to-b from-[#FAE5C8] via-[#FFE4B5] to-[#FFF8DC] overflow-hidden relative">
+    {/* Optional subtle background pattern */}
+    {/* <div className="absolute top-0 left-0 w-full h-full opacity-10 bg-repeat" style={{ backgroundImage: "url('/patterns/floral.svg')" }}></div> */}
+
+    <div className="container mx-auto px-6 relative z-10">
+        <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-16">
+            {/* Left Side - Pandit Ji Image */}
+            <div className="w-full md:w-1/2 flex justify-center p-4">
+                <div className="relative max-w-sm mx-auto">
+                    {/* Decorative Background Shape */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#B91C1C] to-[#991B1B] rounded-2xl transform rotate-3 scale-105 shadow-xl origin-center"></div>
+                    <img
+                        src="/bhushan.jpg"
+                        alt="Pandit Ji Bhushan Ji"
+                        className="relative rounded-2xl shadow-2xl transform -rotate-3 transition-transform hover:rotate-0 duration-300 border-4 border-white w-full h-auto"
+                    />
+                    {/* Experience Badge */}
+                    <div className="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 bg-white rounded-lg shadow-xl p-3 md:p-4 transform rotate-3 origin-bottom-right">
+                        <p className="text-base md:text-lg font-semibold text-[#B91C1C] whitespace-nowrap" style={{ fontFamily: 'Cormorant Garamond, serif' }}>
+                            40+ Years of Experience
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            {/* Right Side - Content */}
+            <div className="w-full md:w-1/2 text-center md:text-left">
+                <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 text-[#B91C1C]" style={{ fontFamily: 'Cinzel Decorative, serif' }}>
+                    Pandit Bhushan Ji
+                </h2>
+
+                {/* Decorative line */}
+                <div className="w-24 md:w-32 mx-auto md:mx-0 mb-8 h-1 rounded-full bg-gradient-to-r from-[#B91C1C] to-[#991B1B]"></div>
+
+                {/* Introduction Paragraph */}
+                <p className="text-base sm:text-lg md:text-xl text-[#5C3A1E] mb-6 leading-relaxed" style={{ fontFamily: 'Cormorant Garamond, serif' }}>
+                    Welcome to <strong>Shambhav Jyotish</strong>, your reliable source for authentic Vedic ceremonies and spiritual guidance. With over <strong>40 years of dedicated practice</strong>, we provide clear, compassionate, and practical insights to help navigate life's journey.
+                </p>
+
+                {/* Location & Tradition Paragraph */}
+                <p className="text-base sm:text-lg md:text-xl text-[#6B3E26] leading-relaxed" style={{ fontFamily: 'Cormorant Garamond, serif' }}>
+                    Based in the holy city of <strong>Ujjain</strong>, we bring the richness of ancient traditions right to your door, guaranteeing a transformative experience each time.
+                </p>
+
+                {/* Feature Badges */}
+                <div className="mt-8 flex flex-col sm:flex-row justify-center md:justify-start gap-4 sm:gap-6">
+                    <div className="flex items-center gap-3 bg-[#FFFDE7] p-3 sm:p-4 rounded-lg shadow-sm">
+                        <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#B91C1C] rounded-full flex items-center justify-center flex-shrink-0">
+                            <Star className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                        </div>
+                        <span className="font-semibold text-[#5C3A1E] text-sm sm:text-base leading-tight">Expert<br />Guidance</span>
+                    </div>
+                    <div className="flex items-center gap-3 bg-[#FFFDE7] p-3 sm:p-4 rounded-lg shadow-sm">
+                        <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#B91C1C] rounded-full flex items-center justify-center flex-shrink-0">
+                            <Sun className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                        </div>
+                        <span className="font-semibold text-[#5C3A1E] text-sm sm:text-base leading-tight">Vedic<br />Traditions</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
             {/* Services Section */}
             <section id="services" className="py-24 bg-gradient-to-b from-white to-gray-50">
@@ -451,77 +517,27 @@ const Index = () => {
                         </p>
                     </div>
                     <div className="grid md:grid-cols-3 gap-8">
-            {services.map((service, index) => {
-              const IconComponent = service.icon;
-              return (
+                        {services.map((service, index) => {
+                            const IconComponent = service.icon;
+                            return (
                                 <div key={index} className="service-card golden-border rounded-lg p-8">
                                     <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center mb-6 mx-auto">
-                        <IconComponent size={32} className="text-white" />
-                      </div>
+                                        <IconComponent size={32} className="text-white" />
+                                    </div>
                                     <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center" style={{ fontFamily: 'Cinzel, serif' }}>
                                         {service.title}
                                     </h3>
                                     <p className="text-gray-600 text-center leading-relaxed">
                                         {service.description}
                                     </p>
+                                </div>
+                            );
+                        })}
                     </div>
-              );
-            })}
-          </div>
                 </div>
             </section>
 
-            {/* About Section with Pandit Ji Banner */}
-            <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
-                <div className="container mx-auto px-6">
-                    <div className="flex flex-col md:flex-row items-center gap-12">
-                        <div className="w-full md:w-1/2">
-                            <div className="relative">
-                                <div className="absolute inset-0 bg-gradient-to-r from-[#B91C1C] to-[#991B1B] rounded-2xl transform rotate-3"></div>
-                                <img 
-                                    src="/bhushan.jpg" 
-                                    alt="Pandit Ji" 
-                                    className="relative rounded-2xl shadow-2xl transform -rotate-3 transition-transform hover:rotate-0 duration-300 border-4 border-white"
-                                />
-                                <div className="absolute -bottom-6 -right-6 bg-white rounded-lg shadow-xl p-4 transform rotate-3">
-                                    <p className="text-lg font-semibold text-[#B91C1C]" style={{ fontFamily: 'Cormorant Garamond, serif' }}>
-                                        40+ Years of Experience
-              </p>
-            </div>
-                            </div>
-                        </div>
-                        <div className="w-full md:w-1/2">
-                            <h2 className="text-5xl font-bold mb-4 text-[#B91C1C]" style={{ fontFamily: 'Cinzel Decorative, serif' }}>
-                                About Shambhav Jyotish
-                            </h2>
-                            <h3 className="text-5xl font-bold mb-4 text-[#B91C1C]" style={{ fontFamily: 'Cormorant Garamond, serif' }}>
-                                Pandit Bhushan Ji
-                            </h3>
-                            <div className="decorative-line w-32 mb-8"></div>
-                            <p className="text-xl text-gray-700 mb-6 leading-relaxed" style={{ fontFamily: 'Cormorant Garamond, serif' }}>
-                                Welcome to Shambhav Jyotish, your reliable source for authentic Vedic ceremonies and spiritual guidance. With over 40 years of dedicated practice, we provide clear, compassionate, and practical insights to help navigate life's journey.
-                            </p>
-                            <p className="text-xl text-gray-700 leading-relaxed" style={{ fontFamily: 'Cormorant Garamond, serif' }}>
-                                Based in the holy city of Ujjain, we bring the richness of ancient traditions right to your door, guaranteeing a transformative experience each time.
-                            </p>
-                            <div className="mt-8 flex gap-6">
-                                <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-lg">
-                                    <div className="w-12 h-12 bg-[#B91C1C] rounded-full flex items-center justify-center">
-                                        <Star className="w-6 h-6 text-white" />
-                                    </div>
-                                    <span className="font-semibold text-gray-800">Expert<br/>Guidance</span>
-                                </div>
-                                <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-lg">
-                                    <div className="w-12 h-12 bg-[#B91C1C] rounded-full flex items-center justify-center">
-                                        <Sun className="w-6 h-6 text-white" />
-                                    </div>
-                                    <span className="font-semibold text-gray-800">Vedic<br/>Traditions</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-          </section>
+      
 
             {/* Booking Section */}
             <section id="booking" className="py-24 bg-gradient-to-b from-gray-50 to-white">
@@ -534,14 +550,14 @@ const Index = () => {
                         <p className="text-xl text-gray-600">
                             Schedule your personal consultation with our expert astrologer
                         </p>
-                  </div>
+                    </div>
                     <div className="golden-border bg-white rounded-lg shadow-xl p-8">
                         <BookingForm />
-                  </div>
+                    </div>
                 </div>
-        </section>
+            </section>
 
-        {/* Footer */}
+            {/* Footer */}
             <footer className="bg-[#B91C1C] text-white py-12">
                 <div className="container mx-auto px-6">
                     <div className="text-center">
@@ -567,9 +583,9 @@ const Index = () => {
                         <p className="text-sm opacity-75">&copy; 2024 Shambhav Jyotish. All Rights Reserved by Divyansh Atri.</p>
                     </div>
                 </div>
-        </footer>
-    </div>
-  );
+            </footer>
+        </div>
+    );
 };
 
 export default Index;
