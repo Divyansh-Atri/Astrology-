@@ -119,129 +119,130 @@ const BookingForm = () => {
   };
 
   return (
-    <Card className="w-full mx-auto bg-white border-none shadow-none">
-      <CardHeader>
-        <CardTitle className="text-center text-black text-3xl md:text-4xl font-bold">
-          Book Your Reading
-        </CardTitle>
-      </CardHeader>
-      <CardContent>
-        <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Name */}
-            <div className="space-y-2">
-              <Label htmlFor="patientName" className="text-black font-semibold flex items-center gap-2">
-                <User className="w-4 h-4" />
-                Your Name <span className="text-red-500">*</span>
-              </Label>
-              <Input
-                id="patientName"
-                value={formData.patientName}
-                onChange={(e) => handleInputChange('patientName', e.target.value)}
-                className="bg-black-50 border-black-300 text-black placeholder:text-black-400 rounded-md"
-                placeholder="Enter your full name"
-              />
-              {errors.patientName && <p className="text-red-500 text-xs">{errors.patientName}</p>}
-            </div>
+    <Card className="w-full mx-auto bg-[#4A0000] border border-[#FFD700] shadow-md rounded-xl">
+  <CardHeader>
+    <CardTitle className="text-center text-[#FFD700] text-3xl md:text-4xl font-bold font-serif">
+      ✨ Book Your Reading ✨
+    </CardTitle>
+  </CardHeader>
+  <CardContent>
+    <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Name */}
+        <div className="space-y-2">
+          <Label htmlFor="patientName" className="text-[#F0E68C] font-semibold flex items-center gap-2">
+            <User className="w-4 h-4" />
+            Your Name <span className="text-red-500">*</span>
+          </Label>
+          <Input
+            id="patientName"
+            value={formData.patientName}
+            onChange={(e) => handleInputChange('patientName', e.target.value)}
+            className="bg-[#2C184E] border-[#FFD700] text-[#FFFFFF] placeholder:text-gray-400 rounded-md focus:ring-[#FFD700] focus:border-[#FFD700]"
+            placeholder="Enter your full name"
+          />
+          {errors.patientName && <p className="text-red-500 text-xs">{errors.patientName}</p>}
+        </div>
 
-            {/* Email */}
-            <div className="space-y-2">
-              <Label htmlFor="email" className="text-black font-semibold flex items-center gap-2">
-                <Mail className="w-4 h-4" />
-                Email <span className="text-red-500">*</span>
-              </Label>
-              <Input
-                id="email"
-                type="email"
-                value={formData.email}
-                onChange={(e) => handleInputChange('email', e.target.value)}
-                className="bg-gray-50 border-gray-300 text-black placeholder:text-gray-400 rounded-md"
-                placeholder="your.email@example.com"
-              />
-              {errors.email && <p className="text-red-500 text-xs">{errors.email}</p>}
-            </div>
+        {/* Email */}
+        <div className="space-y-2">
+          <Label htmlFor="email" className="text-[#F0E68C] font-semibold flex items-center gap-2">
+            <Mail className="w-4 h-4" />
+            Email <span className="text-red-500">*</span>
+          </Label>
+          <Input
+            id="email"
+            type="email"
+            value={formData.email}
+            onChange={(e) => handleInputChange('email', e.target.value)}
+            className="bg-[#2C184E] border-[#FFD700] text-[#FFFFFF] placeholder:text-gray-400 rounded-md focus:ring-[#FFD700] focus:border-[#FFD700]"
+            placeholder="your.email@example.com"
+          />
+          {errors.email && <p className="text-red-500 text-xs">{errors.email}</p>}
+        </div>
 
-            {/* Phone */}
-            <div className="space-y-2">
-              <Label htmlFor="phone" className="text-black font-semibold flex items-center gap-2">
-                <Phone className="w-4 h-4" />
-                Phone <span className="text-red-500">*</span>
-              </Label>
-              <Input
-                id="phone"
-                type="tel"
-                value={formData.phone}
-                onChange={(e) => handleInputChange('phone', e.target.value)}
-                className="bg-gray-50 border-gray-300 text-black placeholder:text-gray-400 rounded-md"
-                placeholder="1234567890"
-                maxLength={10}
-              />
-              {errors.phone && <p className="text-red-500 text-xs">{errors.phone}</p>}
-            </div>
+        {/* Phone */}
+        <div className="space-y-2">
+          <Label htmlFor="phone" className="text-[#F0E68C] font-semibold flex items-center gap-2">
+            <Phone className="w-4 h-4" />
+            Phone <span className="text-red-500">*</span>
+          </Label>
+          <Input
+            id="phone"
+            type="tel"
+            value={formData.phone}
+            onChange={(e) => handleInputChange('phone', e.target.value)}
+            className="bg-[#2C184E] border-[#FFD700] text-[#FFFFFF] placeholder:text-gray-400 rounded-md focus:ring-[#FFD700] focus:border-[#FFD700]"
+            placeholder="1234567890"
+            maxLength={10}
+          />
+          {errors.phone && <p className="text-red-500 text-xs">{errors.phone}</p>}
+        </div>
 
-            {/* Appointment Date */}
-            <div className="space-y-2">
-              <Label htmlFor="appointmentDate" className="text-black font-semibold flex items-center gap-2">
-                <Calendar className="w-4 h-4" />
-                Date <span className="text-red-500">*</span>
-              </Label>
-              <Input
-                id="appointmentDate"
-                type="date"
-                value={formData.appointmentDate}
-                onChange={(e) => handleInputChange('appointmentDate', e.target.value)}
-                className="bg-black-50 border-black-300 text-black placeholder:text-black-400 rounded-md"
-              />
-              {errors.appointmentDate && <p className="text-red-500 text-xs">{errors.appointmentDate}</p>}
-            </div>
-          </div>
+        {/* Appointment Date */}
+        <div className="space-y-2">
+          <Label htmlFor="appointmentDate" className="text-[#F0E68C] font-semibold flex items-center gap-2">
+            <Calendar className="w-4 h-4" />
+            Date <span className="text-red-500">*</span>
+          </Label>
+          <Input
+            id="appointmentDate"
+            type="date"
+            value={formData.appointmentDate}
+            onChange={(e) => handleInputChange('appointmentDate', e.target.value)}
+            className="bg-[#2C184E] border-[#FFD700] text-[#FFFFFF] rounded-md focus:ring-[#FFD700] focus:border-[#FFD700]"
+          />
+          {errors.appointmentDate && <p className="text-red-500 text-xs">{errors.appointmentDate}</p>}
+        </div>
+      </div>
 
-          {/* Appointment Time */}
-          <div className="space-y-2">
-            <Label htmlFor="appointmentTime" className="text-black font-semibold flex items-center gap-2">
-              <Clock className="w-4 h-4" />
-              Time <span className="text-red-500">*</span>
-            </Label>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-              {timeSlots.map((time) => (
-                <Button
-                  key={time}
-                  type="button"
-                  onClick={() => handleInputChange('appointmentTime', time)}
-                  variant="outline"
-                  className={`
-                    rounded-md font-semibold transition-all duration-200
-                    ${
-                      formData.appointmentTime === time
-                        ? 'bg-black text-white border-black'
-                        : 'bg-white text-black border-black-300 hover:bg-black-100'
-                    }
-                  `}
-                >
-                  {time}
-                </Button>
-              ))}
-            </div>
-            {errors.appointmentTime && <p className="text-red-500 text-xs">{errors.appointmentTime}</p>}
-          </div>
-
-          {/* Submit Button */}
-          <div className="mt-4">
+      {/* Time Buttons */}
+      <div className="space-y-2">
+        <Label htmlFor="appointmentTime" className="text-[#F0E68C] font-semibold flex items-center gap-2">
+          <Clock className="w-4 h-4" />
+          Time <span className="text-red-500">*</span>
+        </Label>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+          {timeSlots.map((time) => (
             <Button
-              type="submit"
-              disabled={isSubmitting}
-              className="w-full bg-black text-white py-4 rounded-md font-bold text-lg hover:bg-gray-800 transition-colors disabled:opacity-50"
+              key={time}
+              type="button"
+              onClick={() => handleInputChange('appointmentTime', time)}
+              variant="outline"
+              className={`
+                rounded-md font-semibold transition-all duration-200 border
+                ${
+                  formData.appointmentTime === time
+                    ? 'bg-[#FF4500] text-white border-[#FF4500] hover:bg-[#CC3700]' // Red for selected
+                    : 'bg-[#2C184E] text-[#FFD700] border-[#FFD700] hover:bg-[#3D2562]' // Golden for unselected
+                }
+              `}
             >
-                {isSubmitting ? (
-                    <div className="w-6 h-6 border-4 border-white border-t-transparent rounded-full animate-spin" />
-              ) : (
-                'Book Now'
-              )}
+              {time}
             </Button>
-          </div>
-        </form>
-      </CardContent>
-    </Card>
+          ))}
+        </div>
+        {errors.appointmentTime && <p className="text-red-500 text-xs">{errors.appointmentTime}</p>}
+      </div>
+
+      {/* Submit Button */}
+      <div className="mt-4">
+    <Button
+        type="submit"
+        disabled={isSubmitting}
+        className="w-full bg-[#B22222] text-white py-4 rounded-md font-bold text-lg hover:bg-[#8B0000] transition-colors disabled:opacity-50 border-2 border-[#FFD700]" // Added border-2 and border-[#FFD700]
+    >
+        {isSubmitting ? (
+            <div className="w-6 h-6 border-4 border-white border-t-transparent rounded-full animate-spin" />
+        ) : (
+            '✨ Book Now ✨'
+        )}
+    </Button>
+</div>
+    </form>
+  </CardContent>
+</Card>
+
   );
 };
 

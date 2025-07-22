@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import BookingForm from '@/components/BookingForm';
-import { Sun, Moon, Star, Phone, Mail, MapPin } from 'lucide-react';
+import { Sun, Moon, Star, Phone, Mail, MapPin, Clock } from 'lucide-react';
 
 const Index = () => {
     const services = [
@@ -29,12 +29,18 @@ const Index = () => {
     };
 
     return (
-        <div className="min-h-screen bg-white">
+        <div className="min-h-screen bg-white font-poppins">
             {/* Add custom styles for the gradient text */}
             <style>
                 {`
                     @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap');
                     
+                    /* Global body text color */
+                    body {
+                        color: #4A0000; /* A deep, dark red for general body text */
+                        font-family: 'Poppins', sans-serif; /* Ensure your chosen font is applied */
+                    }
+
                     .gradient-text {
                         background: linear-gradient(45deg, #FFD700, #FFA500, #FF8C00, #FFD700);
                         -webkit-background-clip: text;
@@ -53,6 +59,7 @@ const Index = () => {
                     .service-card {
                         transition: all 0.3s ease;
                         background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+                        color: #4A0000; /* Text inside service cards */
                     }
 
                     .service-card:hover {
@@ -70,6 +77,9 @@ const Index = () => {
                         position: relative;
                         overflow: hidden;
                         transition: all 0.3s ease;
+                        background: #8B0000;
+                        color: #FFD700;
+                        border: 2px solid #8B0000;
                     }
 
                     .book-now-btn::after {
@@ -162,15 +172,6 @@ const Index = () => {
                     @keyframes floatDeity {
                         0%, 100% { transform: translateY(0px) scale(1); }
                         50% { transform: translateY(-15px) scale(1.02); }
-                    }
-
-                    .book-now-btn {
-                        background: #8B0000;
-                        color: #FFD700;
-                        transition: all 0.3s ease;
-                        position: relative;
-                        overflow: hidden;
-                        border: 2px solid #8B0000;
                     }
 
                     @keyframes pulseButton {
@@ -304,11 +305,10 @@ const Index = () => {
                     }
                 `}
             </style>
-
             {/* Top Info Bar */}
             <div className="bg-white text-gray-600 py-2 border-b">
-                <div className="container mx-auto px-6 flex flex-wrap justify-end gap-6 text-sm">
-                    <a href="tel:+919418108727" className="flex items-center gap-2 hover:text-[#B91C1C] transition-colors">
+                <div className="container mx-auto px-6 flex justify-end gap-6 text-sm whitespace-nowrap overflow-x-auto">
+                    <a href="tel:+917591070027" className="flex items-center gap-2 hover:text-[#B91C1C] transition-colors">
                         <Phone size={14} />
                         <span>Call Us: +91 7591070027</span>
                     </a>
@@ -322,6 +322,7 @@ const Index = () => {
                     </div>
                 </div>
             </div>
+
 
             {/* Navigation */}
             <nav className="bg-[#B91C1C] text-white">
@@ -355,7 +356,7 @@ const Index = () => {
                         style={{
                             left: `${Math.random() * 100}%`,
                             top: `${Math.random() * 100}%`,
-                            animationDelay: `${Math.random() * 1.5}s`
+                            animationDelay: `${Math.random() * 1}s`
                         }}
                     />
                 ))}
@@ -371,64 +372,101 @@ const Index = () => {
                 </div>
 
                 {/* Main Content Container */}
-                <div className="container mx-auto px-6 h-full py-10 sm:py-20 relative z-10 flex-grow">
-                    <div className="flex flex-col lg:flex-row items-center justify-between h-full gap-8">
-                        {/* Left Side - Ganesh Ji */}
-                        <div className="w-full lg:w-1/4 flex justify-center deity-container order-2 lg:order-1 mt-8 lg:mt-0">
-                            <div className="relative w-48 h-48 sm:w-64 sm:h-64">
-                                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-yellow-400/20 to-yellow-600/20 backdrop-blur-sm"></div>
-                                <img
-                                    src="/deities/ganesh.png"
-                                    alt="Lord Ganesh"
-                                    className="absolute inset-0 w-full h-full object-contain p-4"
-                                />
+                <div className="relative bg-gradient-to-b from-[#FFF8F0] via-[#FAF0E6] to-[#FFEBCD] px-4 py-16 overflow-hidden">
+                    {/* Optional: Faded mantra background behind text */}
+
+
+                    {/* Main Content */}
+                    <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16 relative z-10 animate-fadeInSlow">
+
+                        {/* Left: Durga Mata */}
+                        {/* Left: Durga Mata */}
+                      
+
+
+                        {/* Center: Title & Buttons */}
+                        <div className="text-center order-1 lg:order-2 max-w-3xl">
+                            <h1
+                                className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-widest drop-shadow-lg"
+                                style={{ fontFamily: 'Cinzel Decorative, serif' }}
+                            >
+                                ✨{' '}
+                                <span
+                                    className="text-5xl sm:text-6xl lg:text-7xl bg-clip-text text-transparent"
+                                    style={{
+                                        backgroundImage: 'linear-gradient(to right, #FFD700, #DAA520)',
+                                        textShadow: '2px 2px 4px rgba(0,0,0,0.2)',
+                                    }}
+                                >
+                                    Shambhav
+                                </span>{' '}
+                                <span className="text-3xl sm:text-4xl lg:text-5xl text-[#6B1E1E]">
+                                    Jyotish
+                                </span>{' '}
+                                ✨
+                            </h1>
+
+                            <p
+                                className="text-base sm:text-lg text-[#5C4033] mt-4"
+                                style={{ fontFamily: 'Cormorant Garamond, serif' }}
+                            >
+                                Discover Divine Guidance & Book Trusted Pandit Ji Online
+                            </p>
+
+                            <div className="flex flex-col sm:flex-row justify-center gap-4 mt-8">
+                                {/* Book Pandit Ji Now Button */}
+                                <button
+                                    onClick={scrollToBooking}
+                                    className="px-8 py-3 rounded-full font-bold text-base sm:text-lg flex items-center justify-center gap-2
+                   bg-gradient-to-br from-[#FFD700] via-[#FFA500] to-[#FFD700] text-[#8B0000] /* Golden gradient background, dark red text */
+                   shadow-xl transform hover:scale-105 transition-all duration-300 ease-in-out
+                   border-2 border-[#B8860B] /* Darker gold border for definition */
+                   focus:outline-none focus:ring-4 focus:ring-[#FFD700] focus:ring-opacity-70 /* Focus ring for accessibility */
+                   relative overflow-hidden group" /* For hover shine effect */
+                                    style={{ fontFamily: 'Cinzel Decorative, serif' }} /* Changed font for elegance */
+                                >
+                                    {/* Shine effect on hover */}
+                                    <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white to-transparent opacity-0
+                         transform rotate-45 -translate-x-full group-hover:opacity-20 group-hover:translate-x-full transition-all duration-700 ease-out">
+                                    </span>
+                                    <span className="relative z-10">✨ Book Pandit Ji Now ✨</span> {/* Relative z-index for text above shine */}
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        className="h-5 w-5 ml-2 relative z-10" /* Adjusted size and margin for icon */
+                                        viewBox="0 0 20 20"
+                                        fill="currentColor"
+                                    >
+                                        <path
+                                            fillRule="evenodd"
+                                            d="M16.707 10.293a1 1 0 010 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l4.293-4.293a1 1 0 011.414 0z"
+                                            clipRule="evenodd"
+                                        />
+                                    </svg>
+                                </button>
+
+                                {/* Our Services Button */}
+                                <a
+                                    href="#services"
+                                    className="px-8 py-3 rounded-full font-bold text-base sm:text-lg flex items-center justify-center
+                   bg-white text-[#8B0000] /* White background, dark red text */
+                   border-2 border-[#FFD700] /* Golden border */
+                   shadow-lg hover:bg-[#FFD700] hover:text-white /* Hover to inverse colors */
+                   transition-all duration-300 ease-in-out
+                   focus:outline-none focus:ring-4 focus:ring-[#FFD700] focus:ring-opacity-70"
+                                    style={{ fontFamily: 'Cormorant Garamond, serif' }} /* Changed font for elegance */
+                                >
+                                    Our Services
+                                </a>
                             </div>
                         </div>
 
-                        {/* Center Content */}
-                        <div className="w-full lg:w-1/2 text-center relative z-10 order-1 lg:order-2">
-                            <div className="title-container">
-                                <h1 className="main-title text-4xl sm:text-5xl lg:text-6xl" style={{ fontFamily: 'Cinzel Decorative, serif' }}>
-                                    Shambhav Jyotish
-                                </h1>
-                                <p className="subtitle text-lg sm:text-xl lg:text-2xl mt-2" style={{ fontFamily: 'Cormorant Garamond, serif' }}>
-                                    Find & Book Trusted Pandit Ji Online
-                                </p>
-                                <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 mt-8">
-                                    <button
-                                        onClick={scrollToBooking}
-                                        className="book-now-btn px-6 py-3 sm:px-8 sm:py-4 rounded-lg font-bold text-base sm:text-lg flex items-center justify-center gap-2 shadow-lg"
-                                        style={{ fontFamily: 'Poppins, sans-serif' }}
-                                    >
-                                        Book Pandit Ji Now
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                            <path fillRule="evenodd" d="M16.707 10.293a1 1 0 010 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l4.293-4.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                                        </svg>
-                                    </button>
-                                    <a
-                                        href="#services"
-                                        className="px-6 py-3 sm:px-8 sm:py-4 rounded-lg font-bold text-base sm:text-lg border-2 border-[#8B0000] text-[#8B0000] hover:bg-[#8B0000] hover:text-[#FFD700] transition-colors flex items-center justify-center"
-                                        style={{ fontFamily: 'Poppins, sans-serif' }}
-                                    >
-                                        Our Services
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
 
-                        {/* Right Side - Maa Durga */}
-                        <div className="w-full lg:w-1/4 flex justify-center deity-container order-3 mt-8 lg:mt-0">
-                            <div className="relative w-48 h-48 sm:w-64 sm:h-64">
-                                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-yellow-400/20 to-yellow-600/20 backdrop-blur-sm"></div>
-                                <img
-                                    src="/deities/durga.png"
-                                    alt="Maa Durga"
-                                    className="absolute inset-0 w-full h-full object-contain p-4"
-                                />
-                            </div>
-                        </div>
+                        {/* Right: Lord Ganesh */}
+
                     </div>
                 </div>
+
+
 
                 {/* Decorative Bottom Border */}
                 <div className="absolute bottom-0 left-0 right-0 z-10">
@@ -438,71 +476,73 @@ const Index = () => {
                     </svg>
                 </div>
             </div>
-                
 
-               <section className="py-16 md:py-24 bg-gradient-to-b from-[#FAE5C8] via-[#FFE4B5] to-[#FFF8DC] overflow-hidden relative">
-    {/* Optional subtle background pattern */}
-    {/* <div className="absolute top-0 left-0 w-full h-full opacity-10 bg-repeat" style={{ backgroundImage: "url('/patterns/floral.svg')" }}></div> */}
 
-    <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-16">
-            {/* Left Side - Pandit Ji Image */}
-            <div className="w-full md:w-1/2 flex justify-center p-4">
-                <div className="relative max-w-sm mx-auto">
-                    {/* Decorative Background Shape */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#B91C1C] to-[#991B1B] rounded-2xl transform rotate-3 scale-105 shadow-xl origin-center"></div>
-                    <img
-                        src="/bhushan.jpg"
-                        alt="Pandit Ji Bhushan Ji"
-                        className="relative rounded-2xl shadow-2xl transform -rotate-3 transition-transform hover:rotate-0 duration-300 border-4 border-white w-full h-auto"
-                    />
-                    {/* Experience Badge */}
-                    <div className="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 bg-white rounded-lg shadow-xl p-3 md:p-4 transform rotate-3 origin-bottom-right">
-                        <p className="text-base md:text-lg font-semibold text-[#B91C1C] whitespace-nowrap" style={{ fontFamily: 'Cormorant Garamond, serif' }}>
-                            40+ Years of Experience
-                        </p>
+            <section className="py-16 md:py-24 bg-gradient-to-b from-[#FAE5C8] via-[#FFE4B5] to-[#FFF8DC] overflow-hidden relative">
+                {/* Optional subtle background pattern */}
+                {/* <div className="absolute top-0 left-0 w-full h-full opacity-10 bg-repeat" style={{ backgroundImage: "url('/patterns/floral.svg')" }}></div> */}
+
+                <div className="container mx-auto px-6 relative z-10">
+                    <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-16">
+                        {/* Left Side - Pandit Ji Image */}
+                        <div className="w-full md:w-1/2 flex justify-center p-4">
+                            <div className="relative max-w-sm mx-auto">
+                                {/* Decorative Background Shape */}
+                                <div className="absolute inset-0 bg-gradient-to-r from-[#B91C1C] to-[#991B1B] rounded-2xl transform rotate-3 scale-105 shadow-xl origin-center"></div>
+                                <img
+                                    src="/bhushan.jpg"
+                                    alt="Pandit Ji Bhushan Ji"
+                                    className="relative rounded-2xl shadow-2xl transform -rotate-3 transition-transform hover:rotate-0 duration-300 border-4 border-white w-full h-auto"
+                                />
+                                {/* Experience Badge */}
+
+                            </div>
+                        </div>
+
+                        {/* Right Side - Content */}
+                        <div className="w-full md:w-1/2 text-center md:text-left">
+                            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 text-[#B91C1C]" style={{ fontFamily: 'Cinzel Decorative, serif' }}>
+                                Pandit Bhushan Ji
+                            </h2>
+
+                            {/* Decorative line */}
+                            <div className="w-24 md:w-32 mx-auto md:mx-0 mb-8 h-1 rounded-full bg-gradient-to-r from-[#B91C1C] to-[#991B1B]"></div>
+
+                            {/* Introduction Paragraph */}
+                            <p className="text-base sm:text-lg md:text-xl text-[#5C3A1E] mb-6 leading-relaxed" style={{ fontFamily: 'Cormorant Garamond, serif' }}>
+                                Welcome to <strong>Shambhav Jyotish</strong>, your reliable source for authentic Vedic ceremonies and spiritual guidance. With over <strong>40 years of dedicated practice</strong>, we provide clear, compassionate, and practical insights to help navigate life's journey.
+                            </p>
+
+                            {/* Location & Tradition Paragraph */}
+                            <p className="text-base sm:text-lg md:text-xl text-[#6B3E26] leading-relaxed" style={{ fontFamily: 'Cormorant Garamond, serif' }}>
+                                Based in the holy city of <strong>Ujjain</strong>, we bring the richness of ancient traditions right to your door, guaranteeing a transformative experience each time.
+                            </p>
+
+                            {/* Feature Badges */}
+                            <div className="mt-8 flex flex-col sm:flex-row justify-center md:justify-start gap-4 sm:gap-6">
+                                <div className="flex items-center gap-3 bg-[#FFFDE7] p-3 sm:p-4 rounded-lg shadow-sm">
+                                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#B91C1C] rounded-full flex items-center justify-center flex-shrink-0">
+                                        <Star className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                                    </div>
+                                    <span className="font-semibold text-[#5C3A1E] text-sm sm:text-base leading-tight">Expert<br />Guidance</span>
+                                </div>
+                                <div className="flex items-center gap-3 bg-[#FFFDE7] p-3 sm:p-4 rounded-lg shadow-sm">
+                                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#B91C1C] rounded-full flex items-center justify-center flex-shrink-0">
+                                        <Sun className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                                    </div>
+                                    <span className="font-semibold text-[#5C3A1E] text-sm sm:text-base leading-tight">Vedic<br />Traditions</span>
+                                </div>
+                                <div className="flex items-center gap-3 bg-[#FFFDE7] p-3 sm:p-4 rounded-lg shadow-sm">
+                                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#B91C1C] rounded-full flex items-center justify-center flex-shrink-0">
+                                        <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                                    </div>
+                                    <span className="font-semibold text-[#5C3A1E] text-sm sm:text-base leading-tight">Experience<br />40+</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            {/* Right Side - Content */}
-            <div className="w-full md:w-1/2 text-center md:text-left">
-                <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 text-[#B91C1C]" style={{ fontFamily: 'Cinzel Decorative, serif' }}>
-                    Pandit Bhushan Ji
-                </h2>
-
-                {/* Decorative line */}
-                <div className="w-24 md:w-32 mx-auto md:mx-0 mb-8 h-1 rounded-full bg-gradient-to-r from-[#B91C1C] to-[#991B1B]"></div>
-
-                {/* Introduction Paragraph */}
-                <p className="text-base sm:text-lg md:text-xl text-[#5C3A1E] mb-6 leading-relaxed" style={{ fontFamily: 'Cormorant Garamond, serif' }}>
-                    Welcome to <strong>Shambhav Jyotish</strong>, your reliable source for authentic Vedic ceremonies and spiritual guidance. With over <strong>40 years of dedicated practice</strong>, we provide clear, compassionate, and practical insights to help navigate life's journey.
-                </p>
-
-                {/* Location & Tradition Paragraph */}
-                <p className="text-base sm:text-lg md:text-xl text-[#6B3E26] leading-relaxed" style={{ fontFamily: 'Cormorant Garamond, serif' }}>
-                    Based in the holy city of <strong>Ujjain</strong>, we bring the richness of ancient traditions right to your door, guaranteeing a transformative experience each time.
-                </p>
-
-                {/* Feature Badges */}
-                <div className="mt-8 flex flex-col sm:flex-row justify-center md:justify-start gap-4 sm:gap-6">
-                    <div className="flex items-center gap-3 bg-[#FFFDE7] p-3 sm:p-4 rounded-lg shadow-sm">
-                        <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#B91C1C] rounded-full flex items-center justify-center flex-shrink-0">
-                            <Star className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-                        </div>
-                        <span className="font-semibold text-[#5C3A1E] text-sm sm:text-base leading-tight">Expert<br />Guidance</span>
-                    </div>
-                    <div className="flex items-center gap-3 bg-[#FFFDE7] p-3 sm:p-4 rounded-lg shadow-sm">
-                        <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#B91C1C] rounded-full flex items-center justify-center flex-shrink-0">
-                            <Sun className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-                        </div>
-                        <span className="font-semibold text-[#5C3A1E] text-sm sm:text-base leading-tight">Vedic<br />Traditions</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+            </section>
 
             {/* Services Section */}
             <section id="services" className="py-24 bg-gradient-to-b from-white to-gray-50">
@@ -537,7 +577,7 @@ const Index = () => {
                 </div>
             </section>
 
-      
+
 
             {/* Booking Section */}
             <section id="booking" className="py-24 bg-gradient-to-b from-gray-50 to-white">
@@ -570,6 +610,10 @@ const Index = () => {
                             <a href="tel:+919418108727" className="hover:text-yellow-200 transition-colors flex items-center justify-center gap-2">
                                 <Phone size={16} />
                                 +91 94181 08727
+                            </a>
+                            <a href="tel:+919418108727" className="hover:text-yellow-200 transition-colors flex items-center justify-center gap-2">
+                                <Phone size={16} />
+                                +91 75910 70027
                             </a>
                             <a href="mailto:shambhav.jyotish@gmail.com" className="hover:text-yellow-200 transition-colors flex items-center justify-center gap-2">
                                 <Mail size={16} />
