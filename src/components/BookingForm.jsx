@@ -119,90 +119,88 @@ const BookingForm = () => {
   };
 
   return (
-    <Card className="max-w-3xl w-full mx-auto bg-gradient-to-br from-black/50 via-purple-900/40 to-indigo-900/40 border border-purple-700/40 shadow-2xl rounded-[2.5rem] my-16 px-2 sm:px-8 py-8 sm:py-12">
+    <Card className="w-full mx-auto bg-white border-none shadow-none">
       <CardHeader>
-        <CardTitle className="text-center text-white text-3xl md:text-4xl font-extrabold flex items-center justify-center gap-3 py-6">
-          <Star className="w-8 h-8 text-yellow-400 animate-pulse" />
-          Book Your Cosmic Reading
-          <Star className="w-8 h-8 text-yellow-400 animate-pulse" />
+        <CardTitle className="text-center text-black text-3xl md:text-4xl font-bold">
+          Book Your Reading
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <form onSubmit={handleSubmit} className="flex flex-col gap-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Name */}
-            <div className="space-y-2 bg-gradient-to-br from-purple-800/40 to-black/10 rounded-2xl p-5 shadow-md">
-              <Label htmlFor="patientName" className="text-purple-200 flex items-center gap-2 font-semibold">
+            <div className="space-y-2">
+              <Label htmlFor="patientName" className="text-black font-semibold flex items-center gap-2">
                 <User className="w-4 h-4" />
-                Your Name <span className="text-pink-400">*</span>
+                Your Name <span className="text-red-500">*</span>
               </Label>
               <Input
                 id="patientName"
                 value={formData.patientName}
                 onChange={(e) => handleInputChange('patientName', e.target.value)}
-                className="bg-black/30 border border-purple-700/40 text-black placeholder:text-purple-300 rounded-lg"
+                className="bg-gray-50 border-gray-300 text-black placeholder:text-gray-400 rounded-md"
                 placeholder="Enter your full name"
               />
-              {errors.patientName && <p className="text-red-400 text-xs">{errors.patientName}</p>}
+              {errors.patientName && <p className="text-red-500 text-xs">{errors.patientName}</p>}
             </div>
 
             {/* Email */}
-            <div className="space-y-2 bg-gradient-to-br from-indigo-800/40 to-black/10 rounded-2xl p-5 shadow-md">
-              <Label htmlFor="email" className="text-purple-200 flex items-center gap-2 font-semibold">
+            <div className="space-y-2">
+              <Label htmlFor="email" className="text-black font-semibold flex items-center gap-2">
                 <Mail className="w-4 h-4" />
-                Email <span className="text-pink-400">*</span>
+                Email <span className="text-red-500">*</span>
               </Label>
               <Input
                 id="email"
                 type="email"
                 value={formData.email}
                 onChange={(e) => handleInputChange('email', e.target.value)}
-                className="bg-black/30 border border-purple-700/40 text-black placeholder:text-purple-300 rounded-lg"
+                className="bg-gray-50 border-gray-300 text-black placeholder:text-gray-400 rounded-md"
                 placeholder="your.email@example.com"
               />
-              {errors.email && <p className="text-red-400 text-xs">{errors.email}</p>}
+              {errors.email && <p className="text-red-500 text-xs">{errors.email}</p>}
             </div>
 
             {/* Phone */}
-            <div className="space-y-2 bg-gradient-to-br from-pink-800/40 to-black/10 rounded-2xl p-5 shadow-md">
-              <Label htmlFor="phone" className="text-purple-200 flex items-center gap-2 font-semibold">
+            <div className="space-y-2">
+              <Label htmlFor="phone" className="text-black font-semibold flex items-center gap-2">
                 <Phone className="w-4 h-4" />
-                Phone <span className="text-pink-400">*</span>
+                Phone <span className="text-red-500">*</span>
               </Label>
               <Input
                 id="phone"
                 type="tel"
                 value={formData.phone}
                 onChange={(e) => handleInputChange('phone', e.target.value)}
-                className="bg-black/30 border border-purple-700/40 text-black placeholder:text-purple-300 rounded-lg"
+                className="bg-gray-50 border-gray-300 text-black placeholder:text-gray-400 rounded-md"
                 placeholder="1234567890"
                 maxLength={10}
               />
-              {errors.phone && <p className="text-red-400 text-xs">{errors.phone}</p>}
+              {errors.phone && <p className="text-red-500 text-xs">{errors.phone}</p>}
             </div>
 
             {/* Appointment Date */}
-            <div className="space-y-2 bg-gradient-to-br from-yellow-900/30 to-black/10 rounded-2xl p-5 shadow-md">
-              <Label htmlFor="appointmentDate" className="text-purple-200 flex items-center gap-2 font-semibold">
+            <div className="space-y-2">
+              <Label htmlFor="appointmentDate" className="text-black font-semibold flex items-center gap-2">
                 <Calendar className="w-4 h-4" />
-                Date <span className="text-pink-400">*</span>
+                Date <span className="text-red-500">*</span>
               </Label>
               <Input
                 id="appointmentDate"
                 type="date"
                 value={formData.appointmentDate}
                 onChange={(e) => handleInputChange('appointmentDate', e.target.value)}
-                className="bg-black/30 border border-purple-700/40 text-black placeholder:text-purple-300 rounded-lg"
+                className="bg-gray-50 border-gray-300 text-black placeholder:text-gray-400 rounded-md"
               />
-              {errors.appointmentDate && <p className="text-red-400 text-xs">{errors.appointmentDate}</p>}
+              {errors.appointmentDate && <p className="text-red-500 text-xs">{errors.appointmentDate}</p>}
             </div>
           </div>
 
           {/* Appointment Time */}
-          <div className="space-y-2 bg-gradient-to-br from-[#2d184a]/60 via-[#1a1a2e]/40 to-[#2e1a47]/60 rounded-2xl p-5 shadow-md">
-            <Label htmlFor="appointmentTime" className="text-purple-200 flex items-center gap-2 font-semibold">
+          <div className="space-y-2">
+            <Label htmlFor="appointmentTime" className="text-black font-semibold flex items-center gap-2">
               <Clock className="w-4 h-4" />
-              Time <span className="text-pink-400">*</span>
+              Time <span className="text-red-500">*</span>
             </Label>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
               {timeSlots.map((time) => (
@@ -210,79 +208,39 @@ const BookingForm = () => {
                   key={time}
                   type="button"
                   onClick={() => handleInputChange('appointmentTime', time)}
-                  variant="ghost"
+                  variant="outline"
                   className={`
-                    rounded-xl font-semibold transition-all duration-200 border-0
+                    rounded-md font-semibold transition-all duration-200
                     ${
                       formData.appointmentTime === time
-                        ? 'bg-gradient-to-r from-fuchsia-500 via-purple-600 to-indigo-500 text-black shadow-xl ring-2 ring-fuchsia-300/70 scale-105 animate-pulse'
-                        : 'bg-white/10 text-white hover:bg-fuchsia-700/30 hover:text-white border border-purple-700/30 backdrop-blur-md'
+                        ? 'bg-black text-white border-black'
+                        : 'bg-white text-black border-gray-300 hover:bg-gray-100'
                     }
                   `}
-                  style={{
-                    boxShadow: formData.appointmentTime === time
-                      ? '0 0 16px 4px #d946ef66, 0 2px 8px 0 #0004'
-                      : undefined
-                  }}
                 >
                   {time}
                 </Button>
               ))}
             </div>
-            {errors.appointmentTime && <p className="text-red-400 text-xs">{errors.appointmentTime}</p>}
+            {errors.appointmentTime && <p className="text-red-500 text-xs">{errors.appointmentTime}</p>}
           </div>
 
           {/* Submit Button */}
-          <div className="mt-4 mb-2">
+          <div className="mt-4">
             <Button
               type="submit"
               disabled={isSubmitting}
-              className={`
-                w-full
-                bg-gradient-to-r from-[#a78bfa] via-[#f472b6] to-[#818cf8]
-                text-white py-4 rounded-2xl font-extrabold text-xl
-                shadow-[0_4px_32px_0_rgba(168,139,250,0.25)]
-                border-0 outline-none tracking-wide
-                relative overflow-hidden
-                transition-all duration-200
-                hover:scale-105
-                before:absolute before:inset-0 before:rounded-2xl
-                before:bg-gradient-to-r before:from-pink-400/40 before:via-purple-400/30 before:to-indigo-400/30
-                before:blur-lg before:opacity-60 before:transition-all before:duration-300
-                hover:before:opacity-90
-                focus:ring-4 focus:ring-pink-400/40
-                disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100
-              `}
-              style={{
-                zIndex: 1
-              }}
+              className="w-full bg-black text-white py-4 rounded-md font-bold text-lg hover:bg-gray-800 transition-colors disabled:opacity-50"
             >
-              <span className="relative flex items-center justify-center gap-4 z-10">
                 {isSubmitting ? (
-                  <>
                     <div className="w-6 h-6 border-4 border-white border-t-transparent rounded-full animate-spin" />
-                    Booking...
-                  </>
-                ) : (
-                  <>
-                    <Star className="w-6 h-6 text-yellow-300 animate-pulse" />
-                    Book Your Reading
-                    <Star className="w-6 h-6 text-yellow-300 animate-pulse" />
-                  </>
-                )}
-              </span>
+              ) : (
+                'Book Now'
+              )}
             </Button>
           </div>
         </form>
       </CardContent>
-      {isSubmitting && (
-  <div className="absolute inset-0 bg-black/50 backdrop-blur-sm rounded-[2.5rem] flex items-center justify-center z-50">
-    <div className="text-center">
-      <div className="w-16 h-16 border-4 border-purple-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-      <p className="text-white text-lg font-semibold">Scheduling Your Cosmic Journey...</p>
-    </div>
-  </div>
-)}
     </Card>
   );
 };

@@ -1,372 +1,158 @@
 import React from 'react';
-import CelestialBackground from '@/components/CelestialBackground';
-import { Card, CardContent } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
+import { Phone, Mail, MapPin } from 'lucide-react';
 
 const stones = [
-  {
-    name: 'Amethyst',
-    description: 'A calming purple quartz believed to bring peace, balance, and clarity.',
-    image: '/stones-photo/amethyst.png',
-  },
-  {
-    name: 'Rose Quartz',
-    description: 'The pink stone of love, compassion, and emotional healing.',
-    image: '/stones-photo/rose.png',
-  },
-  {
-    name: 'Emerald',
-    description: 'A green beryl symbolizing rebirth, love, and prosperity.',
-    image: '/stones-photo/emarld.png',
-  },
-  {
-    name: 'Ruby',
-    description: 'A red corundum stone of passion, energy, and life force.',
-    image: '/stones-photo/ruby.png',
-  },
-  {
-    name: 'Sapphire',
-    description: 'A blue corundum associated with wisdom, royalty, and divine favor.',
-    image: '/stones-photo/sapphire.png',
-  },
-  {
-    name: 'Citrine',
-    description: 'A yellow quartz known as the stone of abundance and manifestation.',
-    image: '/stones-photo/citrine.png',
-  },
-  {
-    name: 'Turquoise',
-    description: 'A blue-green stone for healing, protection, and strength.',
-    image: '/stones-photo/turquoise.png',
-  },
-  {
-    name: 'Lapis Lazuli',
-    description: 'A deep blue stone encouraging self-awareness and expression.',
-    image: '/stones-photo/lapis.png',
-  },
-  {
-    name: 'Obsidian',
-    description: 'A volcanic glass for protection and grounding.',
-    image: '/stones-photo/obsidian.png',
-  },
-  {
-    name: 'Garnet',
-    description: 'A red stone for energy, regeneration, and balance.',
-    image: '/stones-photo/garnet.png',
-  },
-  {
-    name: 'Aquamarine',
-    description: 'A blue beryl for calm, courage, and clarity.',
-    image: '/stones-photo/aquamarine.png',
-  },
-  {
-    name: 'Topaz',
-    description: 'A golden or blue stone for joy, generosity, and abundance.',
-    image: '/stones-photo/topaz.png',
-  },
-  {
-    name: 'Peridot',
-    description: 'A green olivine for growth, renewal, and positivity.',
-    image: '/stones-photo/Peridot.png',
-  },
-  {
-    name: 'Moonstone',
-    description: 'A shimmering stone for intuition, inspiration, and new beginnings.',
-    image: '/stones-photo/moonstone.png',
-  },
-  {
-    name: 'Onyx',
-    description: 'A black stone for strength, grounding, and protection.',
-    image: '/stones-photo/oynx.png',
-  },
-  {
-    name: 'Malachite',
-    description: 'A green-banded stone for transformation and healing.',
-    image: '/stones-photo/malachite.png',
-  },
-  {
-    name: 'Opal',
-    description: 'A rainbow-hued stone for inspiration and creativity.',
-    image: '/stones-photo/opal.png',
-  },
-  {
-    name: 'Tiger’s Eye',
-    description: 'A golden-brown stone for confidence, courage, and protection.',
-    image: '/stones-photo/tigerseye.png',
-  },
-  {
-    name: 'Bloodstone',
-    description: 'A green jasper with red spots for vitality and courage.',
-    image: '/stones-photo/bllodstone.png',
-  },
-  {
-    name: 'Amazonite',
-    description: 'A blue-green stone for harmony and communication.',
-    image: '/stones-photo/amazonite.png',
-  },
-  {
-    name: 'Aventurine',
-    description: 'A green quartz for luck, prosperity, and confidence.',
-    image: '/stones-photo/aventurine.png',
-  },
-  {
-    name: 'Carnelian',
-    description: 'An orange-red stone for motivation and creativity.',
-    image: '/stones-photo/carnelian.png',
-  },
-  {
-    name: 'Chalcedony',
-    description: 'A blue or white stone for calm and communication.',
-    image: '/stones-photo/chalcedony.png',
-  },
-  {
-    name: 'Chrysoprase',
-    description: 'A green stone for joy, optimism, and truth.',
-    image: '/stones-photo/chrysoprase.png',
-  },
-  {
-    name: 'Fluorite',
-    description: 'A multicolored stone for focus and clarity.',
-    image: '/stones-photo/fluorite.png',
-  },
-  {
-    name: 'Hematite',
-    description: 'A metallic gray stone for grounding and protection.',
-    image: '/stones-photo/hematitie.png',
-  },
-  {
-    name: 'Jasper',
-    description: 'A red, yellow, or brown stone for stability and nurturing.',
-    image: '/stones-photo/jasper.png',
-  },
-  {
-    name: 'Kyanite',
-    description: 'A blue stone for communication and tranquility.',
-    image: '/stones-photo/kyanite.png',
-  },
-  {
-    name: 'Labradorite',
-    description: 'A shimmering stone for transformation and intuition.',
-    image: '/stones-photo/labradorite.png',
-  },
-  {
-    name: 'Larimar',
-    description: 'A blue stone for peace and clarity.',
-    image: '/stones-photo/larimar.png',
-  },
-  {
-    name: 'Morganite',
-    description: 'A pink beryl for love and compassion.',
-    image: '/stones-photo/morganite.png',
-  },
-  {
-    name: 'Pyrite',
-    description: 'A gold metallic stone for protection and abundance.',
-    image: '/stones-photo/pyrite.png',
-  },
-  {
-    name: 'Rhodonite',
-    description: 'A pink and black stone for emotional healing.',
-    image: '/stones-photo/rhondite.png',
-  },
-  {
-    name: 'Smoky Quartz',
-    description: 'A brown quartz for grounding and stress relief.',
-    image: '/stones-photo/smokyquartz.png',
-  },
-  {
-    name: 'Sunstone',
-    description: 'A sparkling stone for joy and empowerment.',
-    image: '/stones-photo/sunstone.png',
-  },
-  {
-    name: 'Tanzanite',
-    description: 'A blue-violet stone for transformation and intuition.',
-    image: '/stones-photo/tanzanite.png',
-  },
-  {
-    name: 'Tourmaline',
-    description: 'A multicolored stone for protection and inspiration.',
-    image: '/stones-photo/tourmaline.png',
-  },
-  {
-    name: 'Zircon',
-    description: 'A clear or colored stone for wisdom and honor.',
-    image: '/stones-photo/zircon.png',
-  },
-  {
-    name: 'Spinel',
-    description: 'A red, pink, or blue stone for revitalization and energy.',
-    image: '/stones-photo/spinel.png',
-  },
-  {
-    name: 'Sodalite',
-    description: 'A blue stone for logic and intuition.',
-    image: '/stones-photo/sodalite.png',
-  },
-  {
-    name: 'Serpentine',
-    description: 'A green stone for healing and meditation.',
-    image: '/stones-photo/serpentine.png',
-  },
-  {
-    name: 'Prehnite',
-    description: 'A green stone for unconditional love and healing.',
-    image: '/stones-photo/prehnite.png',
-  },
-  {
-    name: 'Pietersite',
-    description: 'A blue-gold stone for transformation and insight.',
-    image: '/stones-photo/pietersite.png',
-  },
-  {
-    name: 'Moldavite',
-    description: 'A green tektite for spiritual awakening.',
-    image: '/stones-photo/moldavite.png',
-  },
-  {
-    name: 'Lepidolite',
-    description: 'A lilac stone for emotional balance and peace.',
-    image: '/stones-photo/lepidolite.png',
-  },
-  {
-    name: 'Howlite',
-    description: 'A white stone for calm and patience.',
-    image: '/stones-photo/howlite.png',
-  },
-  {
-    name: 'Herkimer Diamond',
-    description: 'A clear quartz for clarity and high energy.',
-    image: '/stones-photo/herkimerdiamond.png',
-  },
-  {
-    name: 'Fire Agate',
-    description: 'A brown-red stone for protection and vitality.',
-    image: '/stones-photo/fireagate.png',
-  },
-  {
-    name: 'Celestite',
-    description: 'A pale blue stone for peace and communication.',
-    image: '/stones-photo/celestite.png',
-  },
-  {
-    name: 'Azurite',
-    description: 'A deep blue stone for insight and intuition.',
-    image: '/stones-photo/azurite.png',
-  },
-  {
-    name: 'Apatite',
-    description: 'A blue-green stone for motivation and inspiration.',
-    image: '/stones-photo/apatitie.png',
-  },
-  {
-    name: 'Agate',
-    description: 'A banded stone for stability and grounding.',
-    image: '/stones-photo/agate.png',
-  },
-  {
-    name: 'Alexandrite',
-    description: 'A color-changing stone for joy and self-esteem.',
-    image: '/stones-photo/alexandrite.png',
-  },
-  {
-    name: 'Amber',
-    description: 'A fossilized resin for healing and cleansing.',
-    image: '/stones-photo/amber.png',
-  },
-  {
-    name: 'Beryl',
-    description: 'A mineral family including emerald and aquamarine.',
-    image: '/stones-photo/beryl.png',
-  },
-  {
-    name: 'Chrysocolla',
-    description: 'A blue-green stone for communication and teaching.',
-    image: '/stones-photo/chrysocolla.png',
-  },
-  {
-    name: 'Coral',
-    description: 'An organic stone for protection and emotional balance.',
-    image: '/stones-photo/coral.png',
-  },
-  {
-    name: 'Dioptase',
-    description: 'A green stone for forgiveness and compassion.',
-    image: '/stones-photo/dioptase-stone.png',
-  },
-  {
-    name: 'Iolite',
-    description: 'A violet-blue stone for vision and creativity.',
-    image: '/stones-photo/iolite.png',
-  },
-  {
-    name: 'Jet',
-    description: 'A black fossilized wood for protection and purification.',
-    image: '/stones-photo/jet.png',
-  },
-  {
-    name: 'Magnesite',
-    description: 'A white stone for relaxation and meditation.',
-    image: '/stones-photo/magnesite.png',
-  },
-  {
-    name: 'Orthoclase',
-    description: 'A yellow feldspar for clarity and cooperation.',
-    image: '/stones-photo/orthoclase.png',
-  },
-  {
-    name: 'Pearl',
-    description: 'An organic gem for purity and wisdom.',
-    image: '/stones-photo/pearl.png',
-  },
-  {
-    name: 'Quartz',
-    description: 'A clear or colored stone for energy and clarity.',
-    image: '/stones-photo/quartz.png',
-  },
-  {
-    name: 'Zoisite',
-    description: 'A green or pink stone for growth and creativity.',
-    image: '/stones-photo/zoisite.png',
-  },
+  { name: 'Agate', image: '/stones-photo/agate.png', description: 'A grounding stone that brings emotional, physical, and intellectual balance.' },
+  { name: 'Alexandrite', image: '/stones-photo/alexandrite.png', description: 'A rare stone of prosperity and longevity, it changes color in different light.' },
+  { name: 'Amazonite', image: '/stones-photo/amazonite.png', description: 'Known as the stone of courage and truth, it soothes the spirit and calms the soul.' },
+  { name: 'Amber', image: '/stones-photo/amber.png', description: 'A powerful healer and cleanser that draws out negative energy and promotes vitality.' },
+  { name: 'Amethyst', image: '/stones-photo/amethyst.png', description: 'A protective stone with a high spiritual vibration, it guards against psychic attack.' },
+  { name: 'Apatite', image: '/stones-photo/apatitie.png', description: 'A stone of manifestation, it enhances creativity and the intellect.' },
+  { name: 'Aquamarine', image: '/stones-photo/aquamarine.png', description: 'A stone of courage, its calming energies reduce stress and quiet the mind.' },
+  { name: 'Aventurine', image: '/stones-photo/aventurine.png', description: 'A stone of prosperity, it reinforces leadership qualities and decisiveness.' },
+  { name: 'Azurite', image: '/stones-photo/azurite.png', description: 'Guides psychic and intuitive development, and cleanses the third eye.' },
+  { name: 'Beryl', image: '/stones-photo/beryl.png', description: 'Enhances courage, relieves stress, and calms the mind.' },
+  { name: 'Bloodstone', image: '/stones-photo/bllodstone.png', description: 'An excellent blood cleanser and a powerful healing stone.' },
+  { name: 'Carnelian', image: '/stones-photo/carnelian.png', description: 'A stabilizing stone, it restores vitality and motivation, and stimulates creativity.' },
+  { name: 'Celestite', image: '/stones-photo/celestite.png', description: 'Has a high vibration and is a teacher for the New Age.' },
+  { name: 'Chalcedony', image: '/stones-photo/chalcedony.png', description: 'A nurturing stone that promotes brotherhood and good will.' },
+  { name: 'Chrysocolla', image: '/stones-photo/chrysocolla.png', description: 'A tranquil stone that aids meditation and communication.' },
+  { name: 'Chrysoprase', image: '/stones-photo/chrysoprase.png', description: 'Induces deep meditative states and promotes a sense of being part of the divine whole.' },
+  { name: 'Citrine', image: '/stones-photo/citrine.png', description: 'A powerful cleanser and regenerator that carries the power of the sun.' },
+  { name: 'Coral', image: '/stones-photo/coral.png', description: 'Quiets the emotions and brings peace within the self.' },
+  { name: 'Dioptase', image: '/stones-photo/dioptase-stone.png', description: 'A powerful healer for the heart and a mental cleanser.' },
+  { name: 'Emerald', image: '/stones-photo/emarld.png', description: 'A stone of successful love, it brings domestic bliss and loyalty.' },
+  { name: 'Fire Agate', image: '/stones-photo/fireagate.png', description: 'Has a deep connection to the earth and its energy is calming, bringing security.' },
+  { name: 'Fluorite', image: '/stones-photo/fluorite.png', description: 'Highly protective, especially on a psychic level.' },
+  { name: 'Garnet', image: '/stones-photo/garnet.png', description: 'A powerfully energizing and regenerating stone.' },
+  { name: 'Hematite', image: '/stones-photo/hematitie.png', description: 'Particularly effective at grounding and protecting.' },
+  { name: 'Herkimer Diamond', image: '/stones-photo/herkimerdiamond.png', description: 'A high-vibration stone that stimulates psychic abilities.' },
+  { name: 'Howlite', image: '/stones-photo/howlite.png', description: 'An extremely calming stone.' },
+  { name: 'Iolite', image: '/stones-photo/iolite.png', description: 'A vision stone that activates the third eye and facilitates visualization.' },
+  { name: 'Jade', image: '/stones-photo/jade.png', description: 'A symbol of purity and serenity.' },
+  { name: 'Jasper', image: '/stones-photo/jasper.png', description: 'Known as the “supreme nurturer”.' },
+  { name: 'Jet', image: '/stones-photo/jet.png', description: 'A stone of protection, it guards against violence and illness.' },
+  { name: 'Kyanite', image: '/stones-photo/kyanite.png', description: 'Excellent for attunement and meditation.' },
+  { name: 'Labradorite', image: '/stones-photo/labradorite.png', description: 'A highly mystical and protective stone, a bringer of light.' },
+  { name: 'Lapis Lazuli', image: '/stones-photo/lapis.png', description: 'Opens the third eye and balances the throat chakra.' },
+  { name: 'Larimar', image: '/stones-photo/larimar.png', description: 'Radiates love and peace and promotes tranquility.' },
+  { name: 'Lepidolite', image: '/stones-photo/lepidolite.png', description: 'A stone of transition, it assists in the release and reorganization of old patterns.' },
+  { name: 'Magnesite', image: '/stones-photo/magnesite.png', description: 'Brings a calming effect to the emotions.' },
+  { name: 'Malachite', image: '/stones-photo/malachite.png', description: 'A powerful stone but one that needs to be handled with caution.' },
+  { name: 'Moldavite', image: '/stones-photo/moldavite.png', description: 'A rare stone of rapid and powerful spiritual transformation.' },
+  { name: 'Moonstone', image: '/stones-photo/moonstone.png', description: 'A stone of new beginnings.' },
+  { name: 'Morganite', image: '/stones-photo/morganite.png', description: 'Attracts love and maintains it.' },
+  { name: 'Obsidian', image: '/stones-photo/obsidian.png', description: 'A stone without boundaries or limitations.' },
+  { name: 'Opal', image: '/stones-photo/opal.png', description: 'A delicate stone with a fine vibration.' },
+  { name: 'Orthoclase', image: '/stones-photo/orthoclase.png', description: 'A variety of feldspar, known for its connection to the sun and personal power.' },
+  { name: 'Onyx', image: '/stones-photo/oynx.png', description: 'A strength-giving stone, beneficial for athletes or people under mental and emotional stress.' },
+  { name: 'Pearl', image: '/stones-photo/pearl.png', description: 'Signifies faith, charity, and innocence.' },
+  { name: 'Peridot', image: '/stones-photo/Peridot.png', description: 'A protective stone for the aura.' },
+  { name: 'Pietersite', image: '/stones-photo/pietersite.png', description: 'Known as the tempest stone because of its connection to the storm element.' },
+  { name: 'Prehnite', image: '/stones-photo/prehnite.png', description: 'A stone of unconditional love and the crystal to heal the healer.' },
+  { name: 'Pyrite', image: '/stones-photo/pyrite.png', description: 'An excellent energy shield.' },
+  { name: 'Quartz', image: '/stones-photo/quartz.png', description: 'The most powerful healing and energy amplifier on the planet.' },
+  { name: 'Rhodonite', image: '/stones-photo/rhondite.png', description: 'An emotional balancer that nurtures love.' },
+  { name: 'Rose Quartz', image: '/stones-photo/rose.png', description: 'The stone of unconditional love and infinite peace.' },
+  { name: 'Ruby', image: '/stones-photo/ruby.png', description: 'An excellent stone for energy.' },
+  { name: 'Sapphire', image: '/stones-photo/sapphire.png', description: 'Known as the wisdom stone.' },
+  { name: 'Serpentine', image: '/stones-photo/serpentine.png', description: 'An earthing stone that aids meditation and spiritual exploration.' },
+  { name: 'Smoky Quartz', image: '/stones-photo/smokyquartz.png', description: 'One of the most efficient grounding and anchoring stones.' },
+  { name: 'Sodalite', image: '/stones-photo/sodalite.png', description: 'Unites logic with intuition.' },
+  { name: 'Spinel', image: '/stones-photo/spinel.png', description: 'Connected with energy renewal, encouragement in difficult circumstances, and rejuvenation.' },
+  { name: 'Sunstone', image: '/stones-photo/sunstone.png', description: 'A joyful, light-inspiring stone.' },
+  { name: 'Tanzanite', image: '/stones-photo/tanzanite.png', description: 'A stone of magic that stimulates the throat, third eye, and crown chakras.' },
+  { name: 'Tiger\'s Eye', image: '/stones-photo/tigerseye.png', description: 'A protective stone that was traditionally carried as a talisman against ill wishing and curses.' },
+  { name: 'Topaz', image: '/stones-photo/topaz.png', description: 'A mellow, empathetic stone that directs energy to where it is needed most.' },
+  { name: 'Tourmaline', image: '/stones-photo/tourmaline.png', description: 'Cleanses, purifies, and transforms dense energy into a lighter vibration.' },
+  { name: 'Turquoise', image: '/stones-photo/turquoise.png', description: 'A most efficient healer, providing solace for the spirit and well-being for the body.' },
+  { name: 'Zircon', image: '/stones-photo/zircon.png', description: 'A stone of virtue, it promotes innocence and purity.' },
+  { name: 'Zoisite', image: '/stones-photo/zoisite.png', description: 'A stone of creativity, it aids in expressing one\'s own self and avoiding the influence of others.' },
 ];
 
 const Stone = () => {
   return (
-    <div className="min-h-screen relative bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
-      <CelestialBackground />
-      {/* Navigation Buttons */}
-      <div className="flex flex-col md:flex-row items-center justify-center gap-6 mt-8 mb-8">
-        <Link to="/" className="px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full font-bold shadow-lg hover:scale-105 transition-transform text-2xl">Home</Link>
-        <Link to="/gallery" className="px-8 py-4 bg-gradient-to-r from-purple-400 to-yellow-400 text-white rounded-full font-bold shadow-lg hover:scale-105 transition-transform text-2xl">Gallery</Link>
-        <span className="px-8 py-4 bg-gradient-to-r from-yellow-400 to-pink-400 text-white rounded-full font-bold shadow-lg text-2xl border-4 border-yellow-300 cursor-default">Stones</span>
-      </div>
-      <div className="relative z-10 min-h-screen">
-        <section className="container mx-auto px-4 py-20">
-          <div className="text-center mb-16">
-            <h1 className="text-6xl md:text-8xl font-bold mb-6 text-emerald-300">Stones</h1>
-            <p className="text-xl md:text-2xl text-emerald-100 mb-8 max-w-3xl mx-auto">
-              Explore 50 of the world’s most beautiful and mystical stones.
-            </p>
+    <div className="min-h-screen bg-white">
+      {/* Top Info Bar */}
+      <div className="bg-white text-gray-600 py-2 border-b">
+        <div className="container mx-auto px-6 flex flex-wrap justify-end gap-6 text-sm">
+          <a href="tel:+1234567890" className="flex items-center gap-2">
+            <Phone size={14} />
+            <span>Call Us: +1234567890</span>
+          </a>
+          <a href="mailto:info@example.com" className="flex items-center gap-2">
+            <Mail size={14} />
+            <span>info@example.com</span>
+          </a>
+          <div className="flex items-center gap-2">
+            <MapPin size={14} />
+            <span>Ujjain</span>
           </div>
+        </div>
+      </div>
+
+      {/* Navigation */}
+      <nav className="bg-[#B91C1C] text-white">
+        <div className="container mx-auto px-6 py-4">
+          <div className="flex justify-between items-center">
+            <div className="text-2xl font-bold">
+              Shambhav Jyotish
+            </div>
+            <div className="flex items-center gap-8">
+              <Link to="/" className="hover:text-yellow-200 transition-colors">Home</Link>
+              <Link to="/gallery" className="hover:text-yellow-200 transition-colors">Gallery</Link>
+              <Link to="/gallery/stone" className="hover:text-yellow-200 transition-colors">Stones</Link>
+              <a href="/#booking" className="bg-white text-[#B91C1C] px-4 py-2 rounded-md font-semibold hover:bg-yellow-50 transition-colors">
+                Book Now
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* Page Header */}
+      <div className="bg-gray-50 py-16">
+        <div className="container mx-auto px-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-center text-gray-900">
+            Sacred Stones Collection
+          </h1>
+          <p className="text-xl text-gray-600 text-center mt-4 max-w-2xl mx-auto">
+            Discover the unique energies and properties of our curated selection of mystical stones.
+          </p>
+        </div>
+      </div>
+
+      {/* Stones Grid */}
+      <section className="py-20">
+        <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            {stones.map((stone, idx) => (
-              <Card key={idx} className="bg-black/30 border-emerald-400/30 shadow-xl rounded-2xl overflow-hidden flex flex-col items-center">
-                <img src={stone.image} alt={stone.name} className="w-full h-64 object-cover" />
-                <CardContent className="p-6 text-center flex-1 flex flex-col justify-between">
-                  <h3 className="text-2xl font-bold text-emerald-300 mb-2">{stone.name}</h3>
-                  <p className="text-emerald-100 text-base">{stone.description}</p>
-                </CardContent>
-              </Card>
+            {stones.map((stone) => (
+              <div key={stone.name} className="bg-white rounded-lg shadow-lg border border-gray-100 overflow-hidden">
+                <div className="h-56 bg-gray-50 flex items-center justify-center p-4">
+                  <img 
+                    src={stone.image} 
+                    alt={stone.name} 
+                    className="max-h-full max-w-full object-contain hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{stone.name}</h3>
+                  <p className="text-gray-600 text-sm">{stone.description}</p>
+                </div>
+              </div>
             ))}
           </div>
+          </div>
         </section>
-        <footer className="container mx-auto px-4 py-8 text-center border-t border-purple-500/30">
-          <p className="text-purple-300">
-            © 2024 Celestial Wisdom. May the stars guide your journey.
-          </p>
+
+      {/* Footer */}
+      <footer className="bg-[#B91C1C] text-white py-8">
+        <div className="container mx-auto px-6 text-center">
+          <p className="text-lg font-semibold mb-2">Shambhav Jyotish</p>
+          <p className="text-sm opacity-75">&copy; 2024 Shambhav Jyotish. All Rights Reserved.</p>
+        </div>
         </footer>
-      </div>
     </div>
   );
 };
