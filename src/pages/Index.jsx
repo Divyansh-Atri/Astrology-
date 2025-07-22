@@ -335,12 +335,7 @@ const Index = () => {
                             <Link to="/" className="hover:text-yellow-200 transition-colors">Home</Link>
                             <Link to="/gallery" className="hover:text-yellow-200 transition-colors">Gallery</Link>
                             <Link to="/gallery/stone" className="hover:text-yellow-200 transition-colors">Stones</Link>
-                            <button
-                                onClick={scrollToBooking}
-                                className="book-now-btn bg-gradient-to-r from-yellow-500 to-yellow-600 text-black px-4 py-2 rounded-md font-semibold hover:shadow-lg hover:from-yellow-400 hover:to-yellow-500 transition-all duration-300"
-                            >
-                                Book Now
-                            </button>
+                            
                         </div>
                     </div>
                 </div>
