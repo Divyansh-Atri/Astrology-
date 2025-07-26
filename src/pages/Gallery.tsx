@@ -20,22 +20,7 @@ const Gallery = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Top Info Bar */}
-      <div className="bg-white text-gray-600 py-2 border-b">
-        <div className="container mx-auto px-6 flex flex-wrap justify-end gap-6 text-sm">
-          <a href="tel:+1234567890" className="flex items-center gap-2">
-            <Phone size={14} />
-            <span>Call Us: +91 7591070027</span>
-          </a>
-          <a href="mailto:info@example.com" className="flex items-center gap-2">
-            <Mail size={14} />
-            <span>shambhav.jyotish@gmail.com</span>
-          </a>
-          <div className="flex items-center gap-2">
-            <MapPin size={14} />
-            <span>Jwalaji & Kullu</span>
-          </div>
-        </div>
-      </div>
+     
 
       {/* Navigation */}
       <nav className="bg-[#B91C1C] text-white">
