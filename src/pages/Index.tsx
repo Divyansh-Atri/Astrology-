@@ -5,6 +5,12 @@ import { Star, Moon, Sun, Heart, Gem, Calendar, MapPin, Phone, Mail, ArrowRight,
 import { Button } from '@/components/ui/button';
 import BookingForm from '@/components/BookingForm';
 import DivineIntro from '@/components/DivineIntro';
+import AnimatedHero from '@/components/AnimatedHero';
+import CosmicForecast from '@/components/CosmicForecast';
+import KarmicEchoes from '@/components/KarmicEchoes';
+import Jigyasa from '@/components/Jigyasa';
+import KaalChakra from '@/components/KaalChakra';
+import RetrogradeMonitor from '@/components/RetrogradeMonitor';
 
 const Index = () => {
   const [showIntro, setShowIntro] = useState(true);
@@ -122,102 +128,12 @@ const Index = () => {
           </div>
         </nav>
 
-        {/* Hero Section */}
-        <section className="relative py-20 lg:py-32 overflow-hidden">
-          {/* Background Effects */}
-          <div className="absolute inset-0 opacity-20">
-            <div className="absolute top-20 left-10 w-72 h-72 bg-amber-500/30 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-20 right-10 w-96 h-96 bg-orange-500/20 rounded-full blur-3xl"></div>
-          </div>
 
-          <div className="container mx-auto px-6 relative z-10">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
+        {/* Hero Section - Animated */}
+        <AnimatedHero scrollToBooking={scrollToBooking} />
 
-              {/* Left: Hero Content */}
-              <div className="space-y-8 animate-on-scroll">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-500 text-sm font-medium">
-                  <Sparkles className="w-4 h-4" />
-                  <span>Ancient Wisdom • Modern Guidance</span>
-                </div>
-
-                <h1 className="text-5xl md:text-7xl font-bold leading-tight" style={{ fontFamily: 'Playfair Display, serif' }}>
-                  <span className="block text-zinc-100">Discover Your</span>
-                  <span className="bg-gradient-to-r from-amber-400 via-orange-500 to-amber-400 bg-clip-text text-transparent">
-                    Cosmic Destiny
-                  </span>
-                </h1>
-
-                <p className="text-xl text-zinc-400 leading-relaxed max-w-xl">
-                  Unlock the mysteries of your life through ancient Vedic wisdom. Get personalized astrological insights to navigate your journey with clarity and confidence.
-                </p>
-
-                <div className="flex flex-wrap gap-4">
-                  <Button
-                    onClick={scrollToBooking}
-                    size="lg"
-                    className="bg-amber-500 hover:bg-amber-600 text-zinc-900 px-8 font-semibold shadow-lg shadow-amber-500/20"
-                  >
-                    Schedule Reading <ArrowRight className="ml-2 w-4 h-4" />
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="border-zinc-700 text-zinc-300 hover:bg-zinc-800 hover:text-amber-500"
-                  >
-                    <a href="#services">View Services</a>
-                  </Button>
-                </div>
-
-                {/* Stats */}
-                <div className="grid grid-cols-3 gap-8 pt-8 border-t border-zinc-800">
-                  <div>
-                    <div className="text-3xl font-bold text-amber-500">5000+</div>
-                    <div className="text-sm text-zinc-500 mt-1">Happy Clients</div>
-                  </div>
-                  <div>
-                    <div className="text-3xl font-bold text-amber-500">15+</div>
-                    <div className="text-sm text-zinc-500 mt-1">Years Experience</div>
-                  </div>
-                  <div>
-                    <div className="text-3xl font-bold text-amber-500">4.9</div>
-                    <div className="text-sm text-zinc-500 mt-1">Rating</div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right: Pandit Ji Profile */}
-              <div className="relative animate-on-scroll" style={{ animationDelay: '0.2s' }}>
-                <div className="absolute inset-0 bg-gradient-to-r from-amber-500/20 to-orange-500/20 rounded-3xl blur-2xl"></div>
-                <div className="relative bg-zinc-800/50 rounded-3xl p-2 border border-zinc-700/50 backdrop-blur-sm">
-                  <div className="relative aspect-[4/5] overflow-hidden rounded-2xl">
-                    <img
-                      src="/bhushan.jpg"
-                      alt="Pandit Bhushan Ji"
-                      className="w-full h-full object-cover object-top"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-transparent"></div>
-                    <div className="absolute bottom-6 left-6 right-6">
-                      <p className="text-amber-500 font-semibold tracking-wider text-sm uppercase mb-1">Vedic Astrologer</p>
-                      <h3 className="text-3xl font-bold text-white" style={{ fontFamily: 'Playfair Display, serif' }}>
-                        Pandit Bhushan Ji
-                      </h3>
-                    </div>
-                  </div>
-                  <div className="p-6 space-y-4">
-                    <div className="flex items-center gap-3 text-zinc-400">
-                      <MapPin className="text-amber-500 w-5 h-5 flex-shrink-0" />
-                      <span>Based in Ujjain & Kullu</span>
-                    </div>
-                    <p className="text-zinc-400 leading-relaxed">
-                      With over 15 years of experience in Vedic traditions, guiding thousands of souls towards their true path using ancient wisdom and modern understanding.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </section>
+        {/* Cosmic Forecast - Zodiac Wheel */}
+        <CosmicForecast />
 
         {/* Services Section */}
         <section id="services" className="py-24 bg-zinc-800/30">
@@ -257,6 +173,18 @@ const Index = () => {
             </div>
           </div>
         </section>
+
+        {/* Kaal Chakra - Vedic Time Machine */}
+        <KaalChakra />
+
+        {/* Retrograde Monitor */}
+        <RetrogradeMonitor />
+
+        {/* Karmic Echoes - Testimonials */}
+        <KarmicEchoes />
+
+        {/* Jigyasa - FAQ */}
+        <Jigyasa />
 
         {/* Booking Section */}
         <section id="booking" className="py-24 relative overflow-hidden">
