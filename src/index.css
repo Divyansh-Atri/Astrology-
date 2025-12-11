@@ -21,7 +21,12 @@
     z-index: -1;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply text-zinc-100;
   }
 }
@@ -32,6 +37,7 @@
       opacity: 0;
       transform: translateY(20px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
@@ -42,17 +48,19 @@
     opacity: 0;
     animation-fill-mode: forwards;
   }
-  
+
   .is-visible {
     animation-name: fade-in-up;
     animation-duration: 0.8s;
   }
 }
+
 @keyframes fadeInSlow {
   0% {
     opacity: 0;
     transform: translateY(30px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);

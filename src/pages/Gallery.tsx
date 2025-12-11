@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin } from 'lucide-react';
+import { Phone, Mail, MapPin, Star, ArrowLeft } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const Gallery = () => {
   const images = [
@@ -18,35 +19,60 @@ const Gallery = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Top Info Bar */}
-     
+    <div className="min-h-screen bg-zinc-900 text-zinc-100">
+      {/* Top Bar */}
+      <div className="bg-zinc-800/50 border-b border-zinc-700/50 py-2">
+        <div className="container mx-auto px-6 flex justify-end gap-6 text-sm text-zinc-400">
+          <div className="flex items-center gap-2">
+            <Phone size={14} />
+            <span>+91 75910 70027</span>
+          </div>
+          <div className="hidden md:flex items-center gap-2">
+            <Mail size={14} />
+            <span>shambhav.jyotish@gmail.com</span>
+          </div>
+        </div>
+      </div>
 
       {/* Navigation */}
-      <nav className="bg-[#B91C1C] text-white">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex justify-between items-center">
-            <div className="text-2xl font-bold">
-              Shambhav Jyotish
+      <nav className="sticky top-0 z-50 bg-zinc-900/90 backdrop-blur-md border-b border-zinc-700/50">
+        <div className="container mx-auto px-6 h-20 flex items-center justify-between">
+          <Link to="/" className="flex items-center gap-3">
+            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shadow-lg shadow-amber-500/20">
+              <Star className="w-6 h-6 text-white" />
             </div>
-            <div className="flex items-center gap-8">
-              <Link to="/" className="hover:text-yellow-200 transition-colors">Home</Link>
-              <Link to="/gallery" className="hover:text-yellow-200 transition-colors">Gallery</Link>
-              <Link to="/gallery/stone" className="hover:text-yellow-200 transition-colors">Stones</Link>
-              
+            <div>
+              <h1 className="text-2xl font-bold text-zinc-100" style={{ fontFamily: 'Playfair Display, serif' }}>
+                Shambhav Jyotish
+              </h1>
+              <p className="text-xs text-amber-500">Vedic Astrology Expert</p>
             </div>
+          </Link>
+
+          <div className="flex items-center gap-8 text-sm font-medium">
+            <Link to="/" className="text-zinc-300 hover:text-amber-500 transition">
+              <ArrowLeft className="w-5 h-5" />
+            </Link>
+            <Link to="/" className="text-zinc-300 hover:text-amber-500 transition">Home</Link>
+            <Link to="/gallery" className="text-amber-500 font-semibold">Gallery</Link>
+            <Link to="/gallery/stone" className="text-zinc-300 hover:text-amber-500 transition">Gemstones</Link>
           </div>
         </div>
       </nav>
 
       {/* Page Header */}
-      <div className="bg-gray-50 py-16">
-        <div className="container mx-auto px-6">
-          <h1 className="text-4xl md:text-5xl font-bold text-center text-gray-900">
+      <div className="py-20 bg-gradient-to-b from-zinc-800/50 to-zinc-900">
+        <div className="container mx-auto px-6 text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-500 text-sm font-medium mb-6">
+            <Star className="w-4 h-4" />
+            <span>Sacred Moments</span>
+          </div>
+          <h1 className="text-5xl md:text-6xl font-bold mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
             Our Gallery
           </h1>
-          <p className="text-xl text-gray-600 text-center mt-4 max-w-2xl mx-auto">
-            A curated collection of moments, symbols, and sacred items from our journey.
+          <div className="w-24 h-1 bg-amber-500 mx-auto rounded-full mb-6"></div>
+          <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
+            A curated collection of moments, symbols, and sacred items from our spiritual journey.
           </p>
         </div>
       </div>
@@ -55,14 +81,20 @@ const Gallery = () => {
       <section className="py-20">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-            {images.map((filename) => (
-              <div key={filename} className="overflow-hidden rounded-lg shadow-lg border border-gray-100">
-                <img
-                  src={`/gallery/${filename}`}
-                  alt={filename}
-                  className="w-full h-80 object-cover object-center hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                />
+            {images.map((filename, index) => (
+              <div
+                key={filename}
+                className="group overflow-hidden rounded-2xl border border-zinc-700/50 hover:border-amber-500/50 transition-all duration-300"
+              >
+                <div className="relative aspect-[4/3] overflow-hidden bg-zinc-800">
+                  <img
+                    src={`/gallery/${filename}`}
+                    alt={`Gallery image ${index + 1}`}
+                    className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
               </div>
             ))}
           </div>
@@ -70,14 +102,22 @@ const Gallery = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#B91C1C] text-white py-8">
+      <footer className="bg-zinc-800/50 border-t border-zinc-700/50 py-16">
         <div className="container mx-auto px-6 text-center">
-          <p className="text-lg font-semibold mb-2">Shambhav Jyotish</p>
-          <p className="text-sm opacity-75">&copy; 2024 Shambhav Jyotish. All Rights Reserved.</p>
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shadow-lg shadow-amber-500/20">
+              <Star className="w-5 h-5 text-white" />
+            </div>
+            <h3 className="text-2xl font-bold text-zinc-100" style={{ fontFamily: 'Playfair Display, serif' }}>
+              Shambhav Jyotish
+            </h3>
+          </div>
+          <p className="text-zinc-400 mb-6">Illuminating paths through ancient Vedic wisdom</p>
+          <p className="text-sm text-zinc-500">&copy; {new Date().getFullYear()} Shambhav Jyotish. All rights reserved.</p>
         </div>
       </footer>
     </div>
   );
 };
 
-export default Gallery; 
+export default Gallery;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin } from 'lucide-react';
+import { Phone, Mail, MapPin, Star, ArrowLeft, Gem } from 'lucide-react';
 
 const stones = [
   { name: 'Agate', image: '/stones-photo/agate.png', description: 'A grounding stone that brings emotional, physical, and intellectual balance.' },
@@ -31,7 +31,7 @@ const stones = [
   { name: 'Howlite', image: '/stones-photo/howlite.png', description: 'An extremely calming stone.' },
   { name: 'Iolite', image: '/stones-photo/iolite.png', description: 'A vision stone that activates the third eye and facilitates visualization.' },
   { name: 'Jade', image: '/stones-photo/jade.png', description: 'A symbol of purity and serenity.' },
-  { name: 'Jasper', image: '/stones-photo/jasper.png', description: 'Known as the “supreme nurturer”.' },
+  { name: 'Jasper', image: '/stones-photo/jasper.png', description: 'Known as the "supreme nurturer".' },
   { name: 'Jet', image: '/stones-photo/jet.png', description: 'A stone of protection, it guards against violence and illness.' },
   { name: 'Kyanite', image: '/stones-photo/kyanite.png', description: 'Excellent for attunement and meditation.' },
   { name: 'Labradorite', image: '/stones-photo/labradorite.png', description: 'A highly mystical and protective stone, a bringer of light.' },
@@ -73,49 +73,59 @@ const stones = [
 
 const Stone = () => {
   return (
-    <div className="min-h-screen bg-white">
-      {/* Top Info Bar */}
-      <div className="bg-white text-gray-600 py-2 border-b">
-        <div className="container mx-auto px-6 flex flex-wrap justify-end gap-6 text-sm">
-          <a href="tel:+1234567890" className="flex items-center gap-2">
+    <div className="min-h-screen bg-zinc-900 text-zinc-100">
+      {/* Top Bar */}
+      <div className="bg-zinc-800/50 border-b border-zinc-700/50 py-2">
+        <div className="container mx-auto px-6 flex justify-end gap-6 text-sm text-zinc-400">
+          <div className="flex items-center gap-2">
             <Phone size={14} />
-            <span>Call Us: +91 7591070027</span>
-          </a>
-          <a href="mailto:info@example.com" className="flex items-center gap-2">
+            <span>+91 75910 70027</span>
+          </div>
+          <div className="hidden md:flex items-center gap-2">
             <Mail size={14} />
             <span>shambhav.jyotish@gmail.com</span>
-          </a>
-          <div className="flex items-center gap-2">
-            <MapPin size={14} />
-            <span>Jwalaji & Kullu</span>
           </div>
         </div>
       </div>
 
       {/* Navigation */}
-      <nav className="bg-[#B91C1C] text-white">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex justify-between items-center">
-            <div className="text-2xl font-bold">
-              Shambhav Jyotish
+      <nav className="sticky top-0 z-50 bg-zinc-900/90 backdrop-blur-md border-b border-zinc-700/50">
+        <div className="container mx-auto px-6 h-20 flex items-center justify-between">
+          <Link to="/" className="flex items-center gap-3">
+            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shadow-lg shadow-amber-500/20">
+              <Star className="w-6 h-6 text-white" />
             </div>
-            <div className="flex items-center gap-8">
-              <Link to="/" className="hover:text-yellow-200 transition-colors">Home</Link>
-              <Link to="/gallery" className="hover:text-yellow-200 transition-colors">Gallery</Link>
-              <Link to="/gallery/stone" className="hover:text-yellow-200 transition-colors">Stones</Link>
-            
+            <div>
+              <h1 className="text-2xl font-bold text-zinc-100" style={{ fontFamily: 'Playfair Display, serif' }}>
+                Shambhav Jyotish
+              </h1>
+              <p className="text-xs text-amber-500">Vedic Astrology Expert</p>
             </div>
+          </Link>
+
+          <div className="flex items-center gap-8 text-sm font-medium">
+            <Link to="/" className="text-zinc-300 hover:text-amber-500 transition">
+              <ArrowLeft className="w-5 h-5" />
+            </Link>
+            <Link to="/" className="text-zinc-300 hover:text-amber-500 transition">Home</Link>
+            <Link to="/gallery" className="text-zinc-300 hover:text-amber-500 transition">Gallery</Link>
+            <Link to="/gallery/stone" className="text-amber-500 font-semibold">Gemstones</Link>
           </div>
         </div>
       </nav>
 
       {/* Page Header */}
-      <div className="bg-gray-50 py-16">
-        <div className="container mx-auto px-6">
-          <h1 className="text-4xl md:text-5xl font-bold text-center text-gray-900">
-            Sacred Stones Collection
+      <div className="py-20 bg-gradient-to-b from-zinc-800/50 to-zinc-900">
+        <div className="container mx-auto px-6 text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-500 text-sm font-medium mb-6">
+            <Gem className="w-4 h-4" />
+            <span>Sacred Crystals</span>
+          </div>
+          <h1 className="text-5xl md:text-6xl font-bold mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+            Gemstone Collection
           </h1>
-          <p className="text-xl text-gray-600 text-center mt-4 max-w-2xl mx-auto">
+          <div className="w-24 h-1 bg-amber-500 mx-auto rounded-full mb-6"></div>
+          <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
             Discover the unique energies and properties of our curated selection of mystical stones.
           </p>
         </div>
@@ -125,34 +135,48 @@ const Stone = () => {
       <section className="py-20">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            {stones.map((stone) => (
-              <div key={stone.name} className="bg-white rounded-lg shadow-lg border border-gray-100 overflow-hidden">
-                <div className="h-56 bg-gray-50 flex items-center justify-center p-4">
-                  <img 
-                    src={stone.image} 
-                    alt={stone.name} 
-                    className="max-h-full max-w-full object-contain hover:scale-105 transition-transform duration-300"
+            {stones.map((stone, index) => (
+              <div
+                key={stone.name}
+                className="group bg-zinc-800/50 rounded-2xl border border-zinc-700/50 hover:border-amber-500/50 overflow-hidden transition-all duration-300 hover:-translate-y-2"
+              >
+                <div className="h-64 bg-zinc-800 flex items-center justify-center p-6 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <img
+                    src={stone.image}
+                    alt={stone.name}
+                    className="max-h-full max-w-full object-contain filter drop-shadow-lg transform group-hover:scale-110 transition-transform duration-500 relative z-10"
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{stone.name}</h3>
-                  <p className="text-gray-600 text-sm">{stone.description}</p>
+                  <h3 className="text-xl font-bold text-zinc-100 mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
+                    {stone.name}
+                  </h3>
+                  <p className="text-zinc-400 text-sm leading-relaxed">{stone.description}</p>
                 </div>
               </div>
             ))}
           </div>
-          </div>
-        </section>
+        </div>
+      </section>
 
       {/* Footer */}
-      <footer className="bg-[#B91C1C] text-white py-8">
+      <footer className="bg-zinc-800/50 border-t border-zinc-700/50 py-16">
         <div className="container mx-auto px-6 text-center">
-          <p className="text-lg font-semibold mb-2">Shambhav Jyotish</p>
-          <p className="text-sm opacity-75">&copy; 2024 Shambhav Jyotish. All Rights Reserved.</p>
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shadow-lg shadow-amber-500/20">
+              <Star className="w-5 h-5 text-white" />
+            </div>
+            <h3 className="text-2xl font-bold text-zinc-100" style={{ fontFamily: 'Playfair Display, serif' }}>
+              Shambhav Jyotish
+            </h3>
+          </div>
+          <p className="text-zinc-400 mb-6">Illuminating paths through ancient Vedic wisdom</p>
+          <p className="text-sm text-zinc-500">&copy; {new Date().getFullYear()} Shambhav Jyotish. All rights reserved.</p>
         </div>
-        </footer>
+      </footer>
     </div>
   );
 };
 
-export default Stone; 
+export default Stone;
