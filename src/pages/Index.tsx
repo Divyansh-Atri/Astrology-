@@ -15,6 +15,7 @@ import RetrogradeMonitor from '@/components/RetrogradeMonitor';
 const Index = () => {
   const [showIntro, setShowIntro] = useState(true);
   const [siteRevealed, setSiteRevealed] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleIntroComplete = () => {
     setShowIntro(false);
@@ -99,7 +100,8 @@ const Index = () => {
               </div>
             </Link>
 
-            <div className="flex items-center gap-4 text-sm font-medium">
+            {/* Desktop Menu */}
+            <div className="hidden md:flex items-center gap-4 text-sm font-medium">
               <Link to="/" className="text-zinc-300 hover:text-amber-500 transition">Home</Link>
               <a href="#services" className="text-zinc-300 hover:text-amber-500 transition">Services</a>
               <Link to="/gallery" className="text-zinc-300 hover:text-amber-500 transition">Gallery</Link>
@@ -112,7 +114,175 @@ const Index = () => {
                 Book Now
               </Button>
             </div>
+
+            {/* Mobile Menu Button with Hint */}
+            <div className="md:hidden relative">
+              {/* Pulsing ring animation */}
+              {!mobileMenuOpen && (
+                <motion.div
+                  className="absolute inset-0 rounded-full bg-amber-500/30"
+                  animate={{
+                    scale: [1, 1.5, 1],
+                    opacity: [0.5, 0, 0.5],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                />
+              )}
+
+              {/* Tooltip hint */}
+              {!mobileMenuOpen && (
+                <motion.div
+                  initial={{ opacity: 0, x: 10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{
+                    delay: 1,
+                    duration: 0.5,
+                    repeat: Infinity,
+                    repeatDelay: 3
+                  }}
+                  className="absolute -left-24 top-1/2 -translate-y-1/2 bg-amber-500 text-zinc-900 text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap shadow-lg"
+                >
+                  Tap here!
+                  <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1 w-2 h-2 bg-amber-500 rotate-45"></div>
+                </motion.div>
+              )}
+
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="relative z-50 p-2 text-zinc-300 hover:text-amber-500 transition"
+                aria-label="Menu"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  {mobileMenuOpen ? (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  ) : (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  )}
+                </svg>
+              </button>
+            </div>
           </div>
+
+          {/* Fancy Curved Mobile Dropdown Menu */}
+          {mobileMenuOpen && (
+            <>
+              {/* Backdrop */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setMobileMenuOpen(false)}
+                className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 md:hidden"
+              />
+
+              {/* Curved Menu */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0, x: 100, y: -100 }}
+                animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
+                exit={{ opacity: 0, scale: 0, x: 100, y: -100 }}
+                transition={{ type: "spring", damping: 25, stiffness: 300 }}
+                className="fixed top-16 right-4 z-50 md:hidden"
+                style={{
+                  transformOrigin: 'top right'
+                }}
+              >
+                <div className="relative">
+                  {/* Curved background with glow */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-amber-500/20 to-orange-500/20 rounded-3xl blur-xl"></div>
+
+                  {/* Main menu container */}
+                  <div className="relative bg-zinc-800/95 backdrop-blur-xl border-2 border-amber-500/30 rounded-3xl shadow-2xl shadow-amber-500/20 p-6 min-w-[280px]">
+                    {/* Decorative top curve */}
+                    <div className="absolute -top-1 right-8 w-16 h-16 bg-zinc-800/95 rounded-full border-2 border-amber-500/30 border-b-0 border-l-0"></div>
+
+                    {/* Menu items */}
+                    <div className="flex flex-col gap-1 pt-4">
+                      <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.1 }}
+                      >
+                        <Link
+                          to="/"
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="flex items-center gap-3 text-zinc-300 hover:text-amber-500 transition py-3 px-4 rounded-xl hover:bg-amber-500/10 group"
+                        >
+                          <span className="text-amber-500 group-hover:scale-110 transition-transform">🏠</span>
+                          <span className="font-medium">Home</span>
+                        </Link>
+                      </motion.div>
+
+                      <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.15 }}
+                      >
+                        <a
+                          href="#services"
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="flex items-center gap-3 text-zinc-300 hover:text-amber-500 transition py-3 px-4 rounded-xl hover:bg-amber-500/10 group"
+                        >
+                          <span className="text-amber-500 group-hover:scale-110 transition-transform">⭐</span>
+                          <span className="font-medium">Services</span>
+                        </a>
+                      </motion.div>
+
+                      <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.2 }}
+                      >
+                        <Link
+                          to="/gallery"
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="flex items-center gap-3 text-zinc-300 hover:text-amber-500 transition py-3 px-4 rounded-xl hover:bg-amber-500/10 group"
+                        >
+                          <span className="text-amber-500 group-hover:scale-110 transition-transform">📸</span>
+                          <span className="font-medium">Gallery</span>
+                        </Link>
+                      </motion.div>
+
+                      <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.25 }}
+                      >
+                        <Link
+                          to="/gallery/stone"
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="flex items-center gap-3 text-zinc-300 hover:text-amber-500 transition py-3 px-4 rounded-xl hover:bg-amber-500/10 group"
+                        >
+                          <span className="text-amber-500 group-hover:scale-110 transition-transform">💎</span>
+                          <span className="font-medium">Gemstones</span>
+                        </Link>
+                      </motion.div>
+
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.3 }}
+                        className="mt-3 pt-3 border-t border-zinc-700/50"
+                      >
+                        <Button
+                          onClick={() => {
+                            scrollToBooking();
+                            setMobileMenuOpen(false);
+                          }}
+                          className="w-full bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-zinc-900 font-bold shadow-lg shadow-amber-500/30 rounded-xl py-3"
+                        >
+                          ✨ Book Now ✨
+                        </Button>
+                      </motion.div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </>
+          )}
         </nav>
 
 
