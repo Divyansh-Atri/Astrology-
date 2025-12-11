@@ -37,12 +37,20 @@ const CosmicForecast = () => {
                     </h2>
                     <div className="w-24 h-1 bg-amber-500 mx-auto rounded-full"></div>
                     <p className="text-xl text-zinc-400 max-w-2xl mx-auto mt-6">
-                        Discover what the stars have aligned for you today
+                        General astrological guidance for your zodiac sign
                     </p>
+
+                    {/* Important Disclaimer */}
+                    <div className="mt-6 max-w-3xl mx-auto bg-amber-500/10 border border-amber-500/20 rounded-xl p-4">
+                        <p className="text-sm text-amber-400 leading-relaxed">
+                            <strong>⚠️ Important:</strong> These are general forecasts based on sun signs. For accurate, personalized predictions based on your exact birth chart (Kundali), time, and planetary positions, please{' '}
+                            <a href="#booking" className="underline font-semibold hover:text-amber-300">book a consultation</a> with Pandit Bhushan Ji.
+                        </p>
+                    </div>
                 </div>
 
                 {/* Zodiac Signs Horizontal Scroll */}
-                <div className="relative mb-8">
+                <div className="relative mb-0">
                     <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory">
                         {zodiacSigns.map((sign) => (
                             <motion.button

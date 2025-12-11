@@ -74,40 +74,24 @@ const stones = [
 const Stone = () => {
   return (
     <div className="min-h-screen bg-zinc-900 text-zinc-100">
-      {/* Top Bar */}
-      <div className="bg-zinc-800/50 border-b border-zinc-700/50 py-2">
-        <div className="container mx-auto px-6 flex justify-end gap-6 text-sm text-zinc-400">
-          <div className="flex items-center gap-2">
-            <Phone size={14} />
-            <span>+91 75910 70027</span>
-          </div>
-          <div className="hidden md:flex items-center gap-2">
-            <Mail size={14} />
-            <span>shambhav.jyotish@gmail.com</span>
-          </div>
-        </div>
-      </div>
-
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-zinc-900/90 backdrop-blur-md border-b border-zinc-700/50">
-        <div className="container mx-auto px-6 h-20 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shadow-lg shadow-amber-500/20">
-              <Star className="w-6 h-6 text-white" />
+        <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+          <Link to="/" className="flex items-center gap-2">
+            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shadow-lg shadow-amber-500/20">
+              <span className="text-xl">🕉️</span>
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-zinc-100" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <h1 className="text-lg font-bold text-zinc-100" style={{ fontFamily: 'Playfair Display, serif' }}>
                 Shambhav Jyotish
               </h1>
-              <p className="text-xs text-amber-500">Vedic Astrology Expert</p>
+              <p className="text-[10px] text-amber-500">Vedic Astrology Expert</p>
             </div>
           </Link>
 
-          <div className="flex items-center gap-8 text-sm font-medium">
-            <Link to="/" className="text-zinc-300 hover:text-amber-500 transition">
-              <ArrowLeft className="w-5 h-5" />
-            </Link>
+          <div className="flex items-center gap-4 text-sm font-medium">
             <Link to="/" className="text-zinc-300 hover:text-amber-500 transition">Home</Link>
+            <a href="/#services" className="text-zinc-300 hover:text-amber-500 transition">Services</a>
             <Link to="/gallery" className="text-zinc-300 hover:text-amber-500 transition">Gallery</Link>
             <Link to="/gallery/stone" className="text-amber-500 font-semibold">Gemstones</Link>
           </div>

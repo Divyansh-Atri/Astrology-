@@ -30,6 +30,11 @@ const RetrogradeMonitor = () => {
                     <p className="text-xl text-zinc-400 max-w-2xl mx-auto mt-6">
                         Real-time status of major planetary movements affecting your life
                     </p>
+                    <div className="mt-4 max-w-2xl mx-auto bg-orange-500/10 border border-orange-500/20 rounded-lg p-3">
+                        <p className="text-xs text-orange-400">
+                            <strong>Note:</strong> Planetary positions shown are for demonstration. For your personalized chart analysis and current Dasha periods, book a detailed consultation.
+                        </p>
+                    </div>
                 </div>
 
                 <div className="max-w-4xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6">
